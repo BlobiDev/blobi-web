@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <!-- Live Nostalgia Modern: pale Aero sky with sweeping white and blue waves (original Blobi artwork). -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CDEFFC"/>
+      <stop offset=".22" stop-color="#EAF8FE"/>
+      <stop offset=".62" stop-color="#F6FCFF"/>
+      <stop offset="1" stop-color="#D6F0FB"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset=".35" stop-color="#FFFFFF" stop-opacity=".95"/>
+      <stop offset=".75" stop-color="#FFFFFF" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="blueband" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7FCDEE" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#7FCDEE" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#5FBCE6" stop-opacity=".15"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#BFE6F8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#9FD8F2" stop-opacity=".55"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1200v800H0z"/>
+  <!-- upper waves -->
+  <path fill="url(#blueband)" d="M-40 120C220 30 470 160 760 70S1110 10 1260 40v40C1080 60 980 140 760 150S260 80-40 190z"/>
+  <path fill="url(#ribbon)" d="M-40 150C260 50 500 190 790 100S1120 40 1260 70v26C1100 80 990 170 780 175S280 110-40 210z"/>
+  <path fill="none" stroke="#FFFFFF" stroke-opacity=".9" stroke-width="3" d="M-40 214C300 110 520 230 800 165S1120 105 1260 120"/>
+  <path fill="none" stroke="#9ED9F2" stroke-opacity=".55" stroke-width="2" d="M-40 236C300 140 540 250 810 190S1130 130 1260 146"/>
+  <!-- lower glossy floor -->
+  <path fill="url(#floor)" d="M0 600C260 560 520 650 800 610S1100 560 1200 575V800H0z"/>
+  <path fill="url(#ribbon)" opacity=".8" d="M-40 690C240 610 520 720 820 650S1120 600 1260 620v22C1100 630 980 690 800 705S300 660-40 730z"/>
+</svg>

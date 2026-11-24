@@ -1,0 +1,23 @@
+---
+import en from '../i18n/en.json';
+import es from '../i18n/es.json';
+const { lang = 'en' } = Astro.props as { lang: 'en' | 'es' };
+const t = (lang === 'es' ? es : en).thanks;
+---
+<main id="main-content" class="thanks">
+  <div class="thanks-inner wrap">
+    <img src="/brand/blobi-icon.svg" alt="" width="120" height="120"/>
+    <h1>{t.title}</h1>
+    <p>{t.text}</p>
+    <a class="thanks-back" href={lang === 'es' ? '/es/' : '/'}>{t.back}</a>
+  </div>
+</main>
+<style>
+.thanks{min-height:calc(100svh - 84px);margin-top:-65px;padding-top:65px;background:url(/theme/blobi/sky.svg) center top/cover no-repeat,var(--sky-top)}
+.thanks-inner{display:grid;justify-items:center;padding:96px 0;text-align:center}
+.thanks img{margin-bottom:20px;filter:drop-shadow(0 14px 16px rgb(12 26 48/.2))}
+.thanks h1{margin:0;color:var(--ink);font-family:var(--font-display);font-size:clamp(40px,5vw,64px);font-weight:720;font-stretch:88%;line-height:1;letter-spacing:-.012em}
+.thanks p{max-width:46ch;margin:18px 0 30px;color:var(--ink-2);font-size:18px;line-height:1.55}
+.thanks-back{display:inline-flex;min-height:44px;align-items:center;padding:0 18px;border-radius:10px;background:var(--ink);color:#fff;font-weight:600;text-decoration:none}
+.thanks-back:hover{background:var(--ink-hover)}
+</style>

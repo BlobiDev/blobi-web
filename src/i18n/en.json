@@ -1,0 +1,78 @@
+{
+  "skip": "Skip to content",
+  "nav": {
+    "main": "Main navigation",
+    "language": "Language",
+    "demo": "Demo",
+    "status": "Status",
+    "themes": "Themes",
+    "waitlist": "Waitlist"
+  },
+  "brand": {
+    "home": "Blobi home",
+    "mascot": "The Blobi mascot"
+  },
+  "status": {
+    "available": "Available",
+    "in-progress": "In development",
+    "planned": "Planned",
+    "project": "In development, no release yet"
+  },
+  "home": {
+    "metaTitle": "Blobi: your friends, online again",
+    "title": "Your friends, online again.",
+    "lead": "Blobi is a desktop messenger for Linux, Windows and macOS. Your contacts live in their own window, chats open in tabs, and it is being built on XMPP, the open chat standard.",
+    "tryPresence": "Try it: set your status in the contacts window, or switch the theme.",
+    "windowsTitle": "Contacts in one window, conversations in another",
+    "demoLead": "Click a contact to open a tab, send a nudge, or replay the chat. This is a scripted demo running in your browser, and nothing here is sent anywhere.",
+    "statusTitle": "What exists so far",
+    "statusLead": "Blobi has no public release yet. This list says where each part stands in the desktop prototype.",
+    "themesTitle": "Make it look like yours",
+    "themesLead": "Blobi includes two themes: Live Nostalgia Modern, and Blobi in light and dark. The other eight are community theme packs, and the Theme Studio editor is still in development.",
+    "themeGallery": "Theme gallery",
+    "builtInTheme": "Built in, light and dark",
+    "communityTheme": "Community theme",
+    "closingTitle": "Want to know when you can try it?",
+    "closingText": "Leave your email and we will write once there is a build you can install.",
+    "builtInThemeOne": "Built in"
+  },
+  "waitlist": {
+    "label": "Email address",
+    "placeholder": "you@example.com",
+    "button": "Join the waitlist",
+    "consent": "Email me about Blobi releases. I can unsubscribe at any time.",
+    "note": "We store your email on Blobi's own server and send the confirmation email through Zoho Mail.",
+    "closed": "The waitlist is not open yet. Check back soon.",
+    "trap": "Leave this field empty"
+  },
+  "footer": {
+    "privacy": "This site uses no cookies, analytics or third-party requests."
+  },
+  "thanks": {
+    "metaTitle": "Check your inbox · Blobi",
+    "title": "Check your inbox",
+    "text": "We sent you an email. Open the link inside to confirm your place on the waitlist. If it doesn't arrive in a few minutes, look in your spam folder.",
+    "back": "Back to Blobi"
+  },
+  "themeSwitch": {
+    "label": "Theme"
+  },
+  "invite": {
+    "metaTitle": "Your invitation · Blobi",
+    "title": "Your Blobi invitation",
+    "back": "Back to Blobi",
+    "states": {
+      "checking": "Checking your invitation…",
+      "noscript": "This page needs JavaScript to check your invitation. Keep the link: it is your invitation.",
+      "pending": "This invitation is valid until {date}. You will be able to create your account when the app is available. Keep this link.",
+      "used": "This invitation has already been used.",
+      "expired": "This invitation has expired.",
+      "revoked": "This invitation was revoked.",
+      "invalid": "This invitation is not valid. Check that you copied the whole link.",
+      "missing": "Open this page from the invitation link you received.",
+      "unavailable": "Invitation checks are not available right now. Keep your link and try again later.",
+      "error": "We could not check your invitation. Try again in a moment.",
+      "busy": "Too many attempts. Wait a minute and try again."
+    }
+  }
+}

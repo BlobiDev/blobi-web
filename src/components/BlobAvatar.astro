@@ -1,0 +1,62 @@
+---
+interface Props {
+  seed: number;
+  presence?: 'online' | 'away' | 'busy' | 'invisible';
+  size?: number;
+  label?: string;
+  ring?: boolean;
+  dot?: boolean;
+}
+
+const { seed, presence = 'online', size = 38, label, ring = true, dot = true } = Astro.props;
+const faceKind = [0, 1, 2, 4, 5, 0, 1, 0][seed % 8] ?? 0;
+const presenceName: Record<NonNullable<Props['presence']>, string> = {
+  online: 'online', away: 'away', busy: 'busy', invisible: 'offline',
+};
+---
+
+<span
+  class="blob-avatar"
+  class:has-frame={ring}
+  class:has-dot={dot}
+  data-presence={presenceName[presence]}
+  style={`--avatar-size:${size}px;--avatar-color:var(--app-avatar-${seed % 8})`}
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+>
+  <svg viewBox="0 0 40 40" width={size} height={size} focusable="false" aria-hidden="true">
+    <rect class="avatar-face" x="0" y="0" width="40" height="40" rx="15.2" />
+    <path class="avatar-gloss" d="M5.6 7.8c4-2.8 9.3-3.2 14.1-1.6" />
+    {faceKind === 4 ? <>
+      <rect class="avatar-ink-fill" x="6.4" y="12.8" width="12" height="7.6" rx="2.4" />
+      <rect class="avatar-ink-fill" x="21.6" y="12.8" width="12" height="7.6" rx="2.4" />
+      <path class="avatar-ink-stroke" d="M18.4 16.1h3.2" />
+      <path class="avatar-ink-stroke" d="M11.2 24c2.3 3.4 5.2 5.1 8.8 5.1" />
+      <path class="avatar-ink-stroke" d="M20 29.1c3.6 0 6.5-1.7 8.8-5.1" />
+    </> : <>
+      <ellipse class="avatar-ink-fill" cx="11.6" cy="14.2" rx="2.2" ry="3.2" />
+      {faceKind === 2 ? <path class="avatar-ink-stroke" d="M8.8 14.2c1.3-1.8 3.9-1.8 5.2 0m10.8 0c1.3-1.8 3.9-1.8 5.2 0" /> : faceKind !== 3 && <ellipse class="avatar-ink-fill" cx="26.4" cy="14.2" rx="2.2" ry="3.2" />}
+      {faceKind === 3 && <path class="avatar-ink-stroke" d="M23.5 14.2h5.8" />}
+      {faceKind === 1 ? <path class="avatar-ink-fill" d="M11 23.4h18a9 9 0 0 1-18 0Z" /> :
+        faceKind === 5 ? <ellipse class="avatar-ink-fill" cx="20" cy="26.8" rx="3.2" ry="3.4" /> :
+          <path class="avatar-ink-stroke" d="M10.5 23.2c2.4 4.8 5.6 7.2 9.5 7.2s7.1-2.4 9.5-7.2" />}
+    </>}
+  </svg>
+  {dot && <span class="avatar-presence-dot" aria-hidden="true"></span>}
+</span>
+
+<style>
+.blob-avatar{position:relative;display:inline-grid;place-items:center;flex:none;width:var(--avatar-size);height:var(--avatar-size);border-radius:38%;background:var(--avatar-color);font-family:var(--app-font);line-height:0}
+.blob-avatar.has-frame::before{position:absolute;inset:-3px;border:2px solid var(--presence-color);border-radius:38%;content:""}
+.blob-avatar svg{display:block;overflow:visible;border-radius:38%;background:var(--avatar-color)}
+.avatar-face{fill:var(--avatar-color)}
+.avatar-ink-fill{fill:var(--app-face-ink,#172B4D)}
+.avatar-ink-stroke{fill:none;stroke:var(--app-face-ink,#172B4D);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.avatar-gloss{fill:none;stroke:rgb(255 255 255/.52);stroke-width:2;stroke-linecap:round}
+.avatar-presence-dot{position:absolute;right:-3px;bottom:-3px;width:12px;height:12px;border:2px solid var(--presence-ring,var(--app-panel,#fff));border-radius:50%;background:var(--presence-color)}
+.blob-avatar[data-presence="online"],.app-copy[data-presence="online"]{--presence-color:var(--app-online,#2FCB82)}
+.blob-avatar[data-presence="away"],.app-copy[data-presence="away"]{--presence-color:var(--app-away,#F4B63B)}
+.blob-avatar[data-presence="busy"],.app-copy[data-presence="busy"]{--presence-color:var(--app-busy,#EF5B78)}
+.blob-avatar[data-presence="offline"],.app-copy[data-presence="invisible"]{--presence-color:var(--app-offline,#A5B3C1)}
+</style>

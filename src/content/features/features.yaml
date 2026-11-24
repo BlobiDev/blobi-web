@@ -1,0 +1,108 @@
+project:
+  status: in-progress
+items:
+  - id: site-privacy
+    chapter: privacy
+    state: available
+    home: true
+    name: { en: "This site has no tracking", es: "Este sitio no te rastrea" }
+    summary: { en: "blobi.dev sets no cookies, runs no analytics and loads nothing from other servers.", es: "blobi.dev no pone cookies, no usa analítica y no carga nada de otros servidores." }
+    detail: { en: "This website uses no cookies, analytics or third-party requests.", es: "Este sitio no usa cookies, analítica ni solicitudes de terceros." }
+  - id: privacy
+    chapter: privacy
+    state: in-progress
+    home: true
+    name: { en: "Privacy-minded development", es: "Desarrollo con la privacidad en mente" }
+    summary: { en: "The desktop prototype is being built with no ads and no tracking.", es: "El prototipo de escritorio se está haciendo sin anuncios ni rastreo." }
+    detail: { en: "Privacy choices for the desktop app remain in development.", es: "Las decisiones de privacidad de la aplicación siguen en desarrollo." }
+  - id: xmpp
+    chapter: server
+    state: in-progress
+    home: true
+    name: { en: "XMPP architecture", es: "Arquitectura XMPP" }
+    summary: { en: "The desktop prototype is built on XMPP, the open chat standard.", es: "El prototipo de escritorio se basa en XMPP, el estándar abierto de mensajería." }
+    detail: { en: "Blobi's XMPP support is in development; this website demo sends no messages.", es: "El soporte XMPP de Blobi está en desarrollo; esta demostración no envía mensajes." }
+  - id: tabs
+    chapter: messaging
+    state: in-progress
+    home: true
+    name: { en: "Tabbed conversations", es: "Conversaciones en pestañas" }
+    summary: { en: "In the desktop prototype, each conversation opens in its own tab.", es: "En el prototipo de escritorio, cada conversación se abre en su propia pestaña." }
+    detail: { en: "The website's local conversation preview is illustrative and sends nothing.", es: "La vista local de conversaciones del sitio es ilustrativa y no envía nada." }
+  - id: separate-windows
+    chapter: messaging
+    state: in-progress
+    home: true
+    name: { en: "Contacts and conversations in separate windows", es: "Contactos y conversaciones en ventanas separadas" }
+    summary: { en: "The desktop prototype keeps contacts in one window and conversations in another.", es: "El prototipo de escritorio pone los contactos en una ventana y las conversaciones en otra." }
+    detail: { en: "The two-window layout is shown in the desktop prototype.", es: "El diseño de dos ventanas aparece en el prototipo de escritorio." }
+  - id: appearances
+    chapter: customization
+    state: in-progress
+    home: true
+    name: { en: "Light and dark appearances", es: "Apariencias clara y oscura" }
+    summary: { en: "The Blobi theme in the desktop prototype comes in light and dark.", es: "El tema Blobi del prototipo de escritorio tiene versión clara y oscura." }
+    detail: { en: "One built-in theme is shown in two variants.", es: "Se muestra un único tema integrado en dos variantes." }
+  - id: tab-drag
+    chapter: messaging
+    state: planned
+    home: true
+    name: { en: "Drag tabs between windows", es: "Arrastrar pestañas entre ventanas" }
+    summary: { en: "Planned. Dragging tabs between windows is outside the first messaging release.", es: "Previsto. Arrastrar pestañas entre ventanas queda fuera de la primera versión de mensajería." }
+    detail: { en: "This interaction is not implemented in the desktop prototype.", es: "Esta interacción no está implementada en el prototipo de escritorio." }
+  - id: presence
+    chapter: messaging
+    state: in-progress
+    home: true
+    name: { en: "Presence", es: "Presencia" }
+    summary: { en: "The desktop prototype has online, away, busy and invisible.", es: "El prototipo de escritorio tiene los estados en línea, ausente, ocupado e invisible." }
+    detail: { en: "The website's presence control only changes the local preview.", es: "El control de presencia del sitio solo cambia la vista local." }
+  - id: themes
+    chapter: customization
+    state: in-progress
+    home: true
+    name: { en: "Built-in theme and Theme Studio", es: "Tema integrado y Theme Studio" }
+    summary: { en: "The desktop prototype includes the Blobi and Live Nostalgia Modern themes. The Theme Studio editor is still in progress.", es: "El prototipo de escritorio incluye los temas Blobi y Live Nostalgia Modern. El editor Theme Studio sigue en marcha." }
+    detail: { en: "Theme editing is in development; Blobi is the only built-in theme shown here.", es: "La edición de temas está en desarrollo; aquí solo se muestra el tema integrado Blobi." }
+  - id: reactions
+    chapter: messaging
+    state: in-progress
+    home: true
+    name: { en: "Message reactions", es: "Reacciones a mensajes" }
+    summary: { en: "You can react to messages in the desktop prototype.", es: "En el prototipo de escritorio puedes reaccionar a los mensajes." }
+    detail: { en: "This website shows a static illustration of the desktop prototype.", es: "Este sitio muestra una ilustración estática del prototipo de escritorio." }
+  - id: attachments
+    chapter: messaging
+    state: in-progress
+    home: true
+    name: { en: "Attachments", es: "Archivos adjuntos" }
+    summary: { en: "The desktop prototype shows image attachments inside the conversation.", es: "El prototipo de escritorio muestra imágenes adjuntas dentro de la conversación." }
+    detail: { en: "File transfer is not claimed as available; the website demo sends nothing.", es: "No se afirma que la transferencia de archivos esté disponible; la demostración no envía nada." }
+  - id: nudge
+    chapter: messaging
+    state: in-progress
+    home: true
+    name: { en: "Nudge", es: "Zumbido" }
+    summary: { en: "The desktop prototype has the nudge, which shakes the conversation window.", es: "El prototipo de escritorio tiene el zumbido, que hace temblar la ventana de conversación." }
+    detail: { en: "The website reproduces the prototype motion locally; no network message is sent.", es: "El sitio reproduce localmente el movimiento del prototipo; no se envía ningún mensaje." }
+  - id: credentials
+    chapter: privacy
+    state: planned
+    home: false
+    name: { en: "System keyring integration", es: "Integración con el llavero del sistema" }
+    summary: { en: "Planned for a later phase.", es: "Previsto para una fase posterior." }
+    detail: { en: "No claim of implementation is made.", es: "No se afirma que esté implementado." }
+  - id: voice-video
+    chapter: messaging
+    state: planned
+    home: false
+    name: { en: "Voice, video and screen sharing", es: "Voz, vídeo y pantalla compartida" }
+    summary: { en: "Planned as an experiment, separate from the first messaging release.", es: "Previsto como experimento, aparte de la primera versión de mensajería." }
+    detail: { en: "These capabilities are not available and are not promised here.", es: "Estas capacidades no están disponibles ni se prometen aquí." }
+  - id: communities
+    chapter: messaging
+    state: planned
+    home: false
+    name: { en: "Communities and channels", es: "Comunidades y canales" }
+    summary: { en: "An idea for later. It is not in the prototype.", es: "Una idea para más adelante. No está en el prototipo." }
+    detail: { en: "No availability claim is made.", es: "No se afirma que esté disponible." }

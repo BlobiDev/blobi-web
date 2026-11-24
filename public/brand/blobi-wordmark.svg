@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="784" height="262" viewBox="228 775 784 262" role="img" aria-labelledby="title desc">
+  <title id="title">Blobi</title>
+  <desc id="desc">Logotipo vectorial de Blobi: dos criaturas sonrientes, verde y azul, con una burbuja de chat.</desc>
+  <defs>
+    <radialGradient id="greenBody" gradientUnits="userSpaceOnUse" cx="341" cy="344" r="420" fx="354" fy="346">
+      <stop stop-color="#ccff46"/><stop offset=".22" stop-color="#a4fa20"/>
+      <stop offset=".54" stop-color="#65ef25"/><stop offset=".79" stop-color="#29d65d"/>
+      <stop offset="1" stop-color="#11bca5"/>
+    </radialGradient>
+    <linearGradient id="greenRim" x1="333" y1="290" x2="456" y2="701" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#aaff31"/><stop offset=".45" stop-color="#5be91d"/>
+      <stop offset="1" stop-color="#12c4bb"/>
+    </linearGradient>
+    <radialGradient id="blueBody" gradientUnits="userSpaceOnUse" cx="631" cy="307" r="594" fx="611" fy="285">
+      <stop stop-color="#69d4fb"/><stop offset=".26" stop-color="#37b2fa"/>
+      <stop offset=".57" stop-color="#0b95fc"/><stop offset=".78" stop-color="#007df9"/>
+      <stop offset="1" stop-color="#0064f6"/>
+    </radialGradient>
+    <linearGradient id="blueRim" x1="590" y1="249" x2="877" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3ec5ff"/><stop offset=".46" stop-color="#169cfe"/>
+      <stop offset=".78" stop-color="#087afa"/><stop offset="1" stop-color="#23bbfc"/>
+    </linearGradient>
+    <linearGradient id="blueBottom" x1="620" y1="400" x2="718" y2="718" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#58d6fe" stop-opacity="0"/><stop offset=".38" stop-color="#168df9" stop-opacity="0"/><stop offset="1" stop-color="#005ef8" stop-opacity=".5"/>
+    </linearGradient>
+    <linearGradient id="ray" x1="916" y1="168" x2="1023" y2="349" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22b2ff"/><stop offset=".58" stop-color="#088afb"/><stop offset="1" stop-color="#0071ec"/>
+    </linearGradient>
+    <linearGradient id="shiny" x1="305" y1="308" x2="360" y2="399" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".98"/><stop offset=".62" stop-color="#fff" stop-opacity=".79"/><stop offset="1" stop-color="#e7ffff" stop-opacity=".46"/>
+    </linearGradient>
+    <linearGradient id="shinyBlue" x1="613" y1="251" x2="690" y2="333" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f5ffff"/><stop offset=".64" stop-color="#fff" stop-opacity=".86"/><stop offset="1" stop-color="#fff" stop-opacity=".54"/>
+    </linearGradient>
+    <linearGradient id="greenMouth" x1="410" y1="460" x2="421" y2="519" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00551e"/><stop offset="1" stop-color="#007920"/>
+    </linearGradient>
+    <linearGradient id="tongueG" x1="413" y1="480" x2="427" y2="519" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#65ed12"/><stop offset="1" stop-color="#1aa400"/>
+    </linearGradient>
+    <linearGradient id="mouthBlue" x1="717" y1="449" x2="764" y2="517" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#001d52"/><stop offset="1" stop-color="#003c9b"/>
+    </linearGradient>
+    <linearGradient id="tongueBlue" x1="739" y1="481" x2="739" y2="536" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0068fa"/><stop offset="1" stop-color="#1cb5ff"/>
+    </linearGradient>
+    <linearGradient id="bubbleEdge" x1="381" y1="532" x2="687" y2="752" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#27b8ff"/><stop offset=".4" stop-color="#008aff"/><stop offset="1" stop-color="#0064f6"/>
+    </linearGradient>
+    <linearGradient id="bubbleFill" x1="519" y1="538" x2="591" y2="725" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/><stop offset=".52" stop-color="#fff"/>
+      <stop offset="1" stop-color="#c2e5fc"/>
+    </linearGradient>
+    <radialGradient id="dot" cx=".32" cy=".2" r="1">
+      <stop stop-color="#1cafff"/><stop offset="1" stop-color="#0076ff"/>
+    </radialGradient>
+    <linearGradient id="word" x1="520" y1="784" x2="660" y2="1027" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#005cc5"/><stop offset=".45" stop-color="#0050b6"/><stop offset="1" stop-color="#0047aa"/>
+    </linearGradient>
+    <radialGradient id="groundShadow"><stop stop-color="#1e98e6" stop-opacity=".12"/><stop offset=".5" stop-color="#48b7ef" stop-opacity=".055"/><stop offset="1" stop-color="#63c4fb" stop-opacity="0"/></radialGradient>
+    <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+    <clipPath id="blueMouthClip">
+      <path d="M699 450 C721 455 739 462 763 459 C778 456 795 452 799 467 C800 492 776 521 751 524 C726 530 711 509 701 489 C693 474 684 451 699 450Z"/>
+    </clipPath>
+    <clipPath id="greenMouthClip">
+      <path d="M383 468 C400 467 421 469 439 460 C452 453 457 459 458 474 C458 497 441 515 421 517 C405 518 383 505 378 490 C375 482 376 471 383 468Z"/>
+    </clipPath>
+  </defs>
+  <!-- Grounded shadow drawn in SVG; all shapes are genuine vectors. -->
+
+  <!-- Green friend -->
+  <g id="green-character">
+    <path d="M494 695 C412 704 333 689 274 652 C217 616 189 553 194 494 C198 424 232 362 291 324 C350 287 402 285 441 292 C483 300 518 315 546 344 C538 371 522 416 508 446 C489 490 484 526 485 562 C486 619 496 658 494 695Z" fill="url(#greenBody)" stroke="url(#greenRim)" stroke-width="2"/>
+    <path d="M203 514 C199 438 243 360 315 322 C378 288 457 292 516 328" fill="none" stroke="#ccff80" stroke-width="10" opacity=".16" stroke-linecap="round"/>
+    <path d="M208 566 C243 661 338 695 421 693" fill="none" stroke="#00ddb3" stroke-width="13" opacity=".17" stroke-linecap="round"/>
+    <g id="green-highlights">
+      <path d="M289 396 C276 394 276 383 283 370 C297 350 321 333 344 331 C361 329 369 338 364 346 C357 358 338 365 323 379 C306 395 297 398 289 396Z" fill="url(#shiny)"/>
+      <ellipse cx="382" cy="329" rx="12" ry="8" fill="#fff" opacity=".62" transform="rotate(-14 382 329)"/>
+      <ellipse cx="269" cy="413" rx="14" ry="10" fill="#fff" opacity=".56" transform="rotate(-52 269 413)"/>
+
+    </g>
+    <g id="green-face" fill="#00571c">
+      <path d="M316 449 C320 435 330 426 343 424 C357 420 374 427 380 439 C382 443 379 450 375 452 C368 456 362 449 356 444 C344 436 330 445 329 458 C328 465 322 468 318 466 C312 464 313 457 316 449Z"/>
+      <path d="M438 421 C442 407 450 400 465 397 C481 395 495 405 501 417 C503 421 500 426 495 429 C487 432 483 426 477 420 C467 411 454 417 453 430 C452 437 446 441 442 439 C435 437 437 429 438 421Z"/>
+      <path d="M383 468 C400 467 421 469 439 460 C452 453 457 459 458 474 C458 497 441 515 421 517 C405 518 383 505 378 490 C375 482 376 471 383 468Z" fill="url(#greenMouth)"/>
+      <g clip-path="url(#greenMouthClip)">
+        <ellipse cx="423" cy="514" rx="27" ry="28" transform="rotate(-11 423 514)" fill="url(#tongueG)"/>
+      </g>
+    </g>
+  </g>
+  <!-- Blue friend -->
+  <g id="blue-character">
+    <path d="M484 517 C486 482 509 450 525 404 C546 344 561 304 608 268 C649 234 690 217 737 217 C828 213 904 269 930 344 C946 389 948 430 974 481 C1002 529 1008 557 1002 601 C993 667 935 704 866 715 C794 729 724 714 670 700 C632 695 591 686 549 667 C514 643 489 604 484 565 C481 547 483 531 484 517Z" fill="url(#blueBody)" stroke="url(#blueRim)" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M500 547 C495 600 531 652 580 680 C677 735 844 753 930 688 C949 674 968 652 982 626 C937 694 855 711 773 703 C671 693 557 655 500 547Z" fill="url(#blueBottom)" opacity=".38"/>
+
+    <g id="blue-highlights">
+      <path d="M605 332 C597 327 598 316 607 300 C620 279 644 263 666 256 C687 250 695 257 694 270 C691 282 679 290 665 299 C649 309 642 325 625 332 C617 335 611 336 605 332Z" fill="url(#shinyBlue)"/>
+      <ellipse cx="713" cy="258" rx="13" ry="9" transform="rotate(-20 713 258)" fill="#efffff" opacity=".65"/>
+      <ellipse cx="594" cy="349" rx="13" ry="9" transform="rotate(-58 594 349)" fill="#edffff" opacity=".55"/>
+
+    </g>
+    <g id="blue-face">
+      <path d="M675 361 C692 360 697 379 696 397 C695 417 688 435 675 438 C658 441 649 427 650 408 C649 387 656 364 675 361Z" fill="#00275f"/>
+      <path d="M828 376 C842 376 850 390 850 412 C850 437 839 453 825 454 C810 455 801 439 803 420 C804 397 813 376 828 376Z" fill="#002967"/>
+      <path d="M699 450 C721 455 739 462 763 459 C778 456 795 452 799 467 C800 492 776 521 751 524 C726 530 711 509 701 489 C693 474 684 451 699 450Z" fill="url(#mouthBlue)"/>
+      <g clip-path="url(#blueMouthClip)">
+        <ellipse cx="742" cy="520" rx="40" ry="36" fill="url(#tongueBlue)"/>
+        <path d="M705 515 C725 486 759 479 779 494" stroke="#42bdff" stroke-width="2" opacity=".26" fill="none"/>
+      </g>
+    </g>
+  </g>
+  <!-- Three exclamation rays -->
+  <g id="rays" fill="url(#ray)">
+    <path d="M889 237 C890 226 904 187 908 176 C914 160 928 155 942 163 C956 170 959 185 951 198 L922 246 C914 260 905 261 896 255 C890 251 886 245 889 237Z"/>
+    <path d="M941 260 C950 249 987 218 1001 213 C1014 207 1027 210 1033 221 C1041 236 1033 250 1022 256 L964 293 C951 299 942 292 938 282 C935 275 937 267 941 260Z"/>
+    <path d="M960 326 C964 317 974 314 984 311 L1029 300 C1045 297 1056 304 1059 318 C1063 335 1053 346 1037 347 L980 350 C968 351 958 343 959 331 C959 329 959 328 960 326Z"/>
+  </g>
+  <!-- Speech bubble with vector cut-out and three dots -->
+  <g id="chat-bubble">
+    <path d="M481 516 L606 515 C668 514 704 556 710 604 C717 663 688 704 638 719 C624 723 610 724 597 724 L481 723 L430 752 C410 764 396 754 397 742 C397 739 404 710 411 693 C389 675 378 648 380 615 C382 558 420 516 481 516Z" fill="url(#bubbleEdge)"/>
+    <path d="M481 533 L601 532 C655 531 691 570 693 614 C696 663 668 699 620 706 L478 706 L422 738 C418 741 412 739 414 731 L427 690 C406 672 397 647 397 615 C398 565 434 533 481 533Z" fill="url(#bubbleFill)" stroke="#e7f7ff" stroke-width="1.4"/>
+    <path d="M465 542 C429 546 409 567 404 607" fill="none" stroke="#fff" stroke-width="7" opacity=".42" stroke-linecap="round"/>
+    <circle cx="484" cy="620" r="20.6" fill="url(#dot)"/>
+    <circle cx="548" cy="620" r="20.5" fill="url(#dot)"/>
+    <circle cx="611" cy="620" r="20.6" fill="url(#dot)"/>
+  </g>
+  <!-- Original wordmark traced from the PNG, independent of fonts -->
+  <g id="blobi-wordmark" fill="url(#word)" fill-rule="evenodd">
+    <path d="M 280.5 794 Q 269 797 262.5 800.5 Q 256 804 252 808 Q 248 812 245.5 816.5 Q 243 821 241 829 Q 239 837 238.5 863.5 Q 238 890 239.5 920.5 Q 241 951 243.5 968.5 Q 246 986 249.5 995 Q 253 1004 260.5 1011.5 Q 268 1019 274 1021.5 Q 280 1024 285.5 1025 Q 291 1026 311.5 1026 Q 332 1026 340 1025 Q 348 1024 359.5 1021.5 Q 371 1019 380.5 1015.5 Q 390 1012 399 1006.5 Q 408 1001 416.5 991.5 Q 425 982 428.5 974 Q 432 966 433.5 958 Q 435 950 434 939.5 Q 433 929 429 920 Q 425 911 419 905 Q 413 899 403.5 894 Q 394 889 401 882.5 Q 408 876 412 867 Q 416 858 416 846.5 Q 416 835 413 828 Q 410 821 405.5 815.5 Q 401 810 394.5 805.5 Q 388 801 373 796 Q 358 791 350 790 Q 342 789 325.5 789 Q 309 789 300.5 790 Q 292 791 280.5 794 Z M 315 926 Q 317 924 321.5 922.5 Q 326 921 335.5 921 Q 345 921 350 923 Q 355 925 358.5 928.5 Q 362 932 363.5 936 Q 365 940 365 943.5 Q 365 947 363.5 951.5 Q 362 956 358 960 Q 354 964 349.5 966 Q 345 968 343.5 968 Q 342 968 341.5 968.5 Q 341 969 333 969 Q 325 969 322 968 Q 319 967 316.5 964.5 Q 314 962 313 960 Q 312 958 311.5 953.5 Q 311 949 310.5 948.5 Q 310 948 310 941.5 Q 310 935 311.5 931.5 Q 313 928 315 926 Z M 306 846 Q 307 843 309.5 840.5 Q 312 838 316 836.5 Q 320 835 328.5 835 Q 337 835 340 836 Q 343 837 347 840.5 Q 351 844 352 846 Q 353 848 353.5 853 Q 354 858 353 861.5 Q 352 865 348.5 869 Q 345 873 340.5 875 Q 336 877 333.5 877 Q 331 877 330.5 877.5 Q 330 878 323 878 Q 316 878 314.5 877.5 Q 313 877 310 874.5 Q 307 872 306.5 870.5 Q 306 869 305.5 859 Q 305 849 306 846 Z"/>
+    <path d="M 484 787 Q 477 787 471 789.5 Q 465 792 461.5 795.5 Q 458 799 456 803 Q 454 807 452.5 813.5 Q 451 820 450 844.5 Q 449 869 449 924 Q 449 979 450.5 989 Q 452 999 455.5 1005.5 Q 459 1012 463.5 1015.5 Q 468 1019 470.5 1020 Q 473 1021 481 1021.5 Q 489 1022 493 1021 Q 497 1020 501.5 1017 Q 506 1014 509.5 1008.5 Q 513 1003 514.5 997.5 Q 516 992 516.5 908 Q 517 824 515 814 Q 513 804 508 798 Q 503 792 497 789.5 Q 491 787 484 787 Z"/>
+    <path d="M 637 844.5 Q 629 843 621 843 Q 613 843 604.5 844.5 Q 596 846 589 848.5 Q 582 851 573 856.5 Q 564 862 556.5 869.5 Q 549 877 546.5 880.5 Q 544 884 540 892 Q 536 900 533.5 909.5 Q 531 919 530.5 929 Q 530 939 531 946.5 Q 532 954 535 963.5 Q 538 973 542 980 Q 546 987 552.5 994.5 Q 559 1002 565 1006.5 Q 571 1011 579 1015 Q 587 1019 596.5 1021.5 Q 606 1024 613.5 1024.5 Q 621 1025 632 1023.5 Q 643 1022 649 1020 Q 655 1018 664.5 1012.5 Q 674 1007 679.5 1002 Q 685 997 690.5 989.5 Q 696 982 699.5 975 Q 703 968 705.5 958 Q 708 948 708.5 936 Q 709 924 708 917.5 Q 707 911 704.5 903 Q 702 895 696 885 Q 690 875 683.5 868.5 Q 677 862 671 858 Q 665 854 655 850 Q 645 846 637 844.5 Z M 617.5 900.5 Q 618 900 622.5 900.5 Q 627 901 631 903 Q 635 905 639 909 Q 643 913 644.5 916 Q 646 919 646.5 922.5 Q 647 926 647.5 926.5 Q 648 927 648 932 Q 648 937 645.5 943.5 Q 643 950 641.5 952 Q 640 954 636.5 957 Q 633 960 629 961.5 Q 625 963 619.5 963 Q 614 963 608.5 960.5 Q 603 958 599 953.5 Q 595 949 593 943.5 Q 591 938 591 932 Q 591 926 592 922.5 Q 593 919 595 915.5 Q 597 912 602 907.5 Q 607 903 610 902 Q 613 901 615 901 Q 617 901 617.5 900.5 Z"/>
+    <path d="M 743 789.5 Q 737 792 732.5 797 Q 728 802 726 807.5 Q 724 813 723 820.5 Q 722 828 722 894 Q 722 960 723.5 970 Q 725 980 728.5 990 Q 732 1000 737 1006.5 Q 742 1013 749 1016.5 Q 756 1020 761 1019.5 Q 766 1019 768 1018 Q 770 1017 773 1013.5 Q 776 1010 777 1010 Q 778 1010 783 1014 Q 788 1018 792.5 1020 Q 797 1022 806.5 1024 Q 816 1026 821.5 1026 Q 827 1026 834 1025 Q 841 1024 852 1019.5 Q 863 1015 868.5 1011 Q 874 1007 880.5 1000 Q 887 993 891.5 985.5 Q 896 978 899.5 967.5 Q 903 957 904.5 946 Q 906 935 905.5 924.5 Q 905 914 902 902.5 Q 899 891 896 885 Q 893 879 889.5 874 Q 886 869 879 862.5 Q 872 856 863.5 851.5 Q 855 847 849.5 845.5 Q 844 844 830 844 Q 816 844 808.5 846.5 Q 801 849 795.5 852.5 Q 790 856 789.5 835 Q 789 814 786.5 807 Q 784 800 781.5 797 Q 779 794 773.5 791 Q 768 788 758.5 787.5 Q 749 787 743 789.5 Z M 806 901.5 Q 811 900 817 900.5 Q 823 901 827.5 903.5 Q 832 906 835.5 910 Q 839 914 841 919 Q 843 924 843 931.5 Q 843 939 841 944 Q 839 949 835.5 953 Q 832 957 826 960 Q 820 963 814 963 Q 808 963 805 962 Q 802 961 799 959 Q 796 957 792 952 Q 788 947 786.5 942.5 Q 785 938 785.5 930 Q 786 922 788.5 917 Q 791 912 796 907.5 Q 801 903 806 901.5 Z"/>
+    <path d="M 970 861.5 Q 964 860 957 860.5 Q 950 861 947 862 Q 944 863 938.5 867 Q 933 871 929 879 Q 925 887 923.5 896 Q 922 905 920 935.5 Q 918 966 918.5 980.5 Q 919 995 922 1002.5 Q 925 1010 929 1014 Q 933 1018 940 1020.5 Q 947 1023 956.5 1022.5 Q 966 1022 972 1019 Q 978 1016 980.5 1013.5 Q 983 1011 985.5 1006.5 Q 988 1002 990.5 990 Q 993 978 994 961 Q 995 944 994.5 914.5 Q 994 885 992 880 Q 990 875 986.5 871 Q 983 867 979.5 865 Q 976 863 970 861.5 Z"/>
+    <path d="M 939.5 792 Q 935 795 931 801 Q 927 807 926.5 816 Q 926 825 928.5 830 Q 931 835 936 839.5 Q 941 844 948 846.5 Q 955 849 963.5 849 Q 972 849 979 846.5 Q 986 844 991.5 839 Q 997 834 999.5 827.5 Q 1002 821 1002 817 Q 1002 813 1000.5 808 Q 999 803 994 797.5 Q 989 792 982 789 Q 975 786 966 785.5 Q 957 785 950.5 787 Q 944 789 939.5 792 Z"/>
+  </g>
+</svg>

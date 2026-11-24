@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+/* The repository root is the Tailwind scan base; keep documentation out of it so the CSS matches the former web/ build. */
+@source not '../../docs';
+@source not '../../.github';
+:root {
+  --bg:#ffffff; --bg-soft:#f5f8fc; --line:#e3e9f1; --line-strong:#cdd7e4;
+  --ink:#0c1a30; --ink-2:#3f5068; --ink-3:#5d6d84;
+  --accent:#1f6fe5; --ink-hover:#22334f; --success:#1d7a3e; --danger:#b3261e; --accent-hover:#1659bd; --accent-soft:#e8f1fe;
+  --grass-1:#a6e65f; --grass-2:#6fd23f; --grass-3:#3cb34a; --grass-deep:#2a8a39; --grass-ink:#0b3009; --sky-top:#7ccbf5; --sky-bar:#dcf0fd; --sky-line:#b9dff7;
+  --online:#2fb35a; --away:#e09a12; --busy:#de4a3c; --offline:#9aa7b8;
+  --font-display:'Bricolage Grotesque Variable',system-ui,sans-serif;
+  --font-sans:'Figtree Variable',system-ui,sans-serif;
+  --radius:12px; --radius-lg:20px;
+  --shadow-window:0 1px 2px rgb(12 26 48/.06),0 24px 60px -20px rgb(12 26 48/.28);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  /* used by app-replica.css */
+  --blue-700:var(--accent); --glass-solid:#f6fbff;
+}

@@ -1,0 +1,24 @@
+---
+import en from '../i18n/en.json';
+import es from '../i18n/es.json';
+import { APP_THEMES, DEFAULT_APP_THEME } from '../lib/app-theme';
+const { lang = 'en' } = Astro.props as { lang: 'en' | 'es' };
+const t = (lang === 'es' ? es : en).themeSwitch;
+const names = { 'live-nostalgia-modern': 'Live Nostalgia Modern', blobi: 'Blobi' } as const;
+---
+<div class="theme-switch" role="radiogroup" aria-label={t.label} data-theme-switch>
+  <span class="theme-switch-label" aria-hidden="true">{t.label}</span>
+  {APP_THEMES.map((id) => <button type="button" role="radio" aria-checked={id === DEFAULT_APP_THEME ? 'true' : 'false'} tabindex={id === DEFAULT_APP_THEME ? 0 : -1} data-theme-choice={id}>
+    <i class:list={['theme-swatch', id]} aria-hidden="true"></i>{names[id]}
+  </button>)}
+</div>
+<style>
+.theme-switch{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;padding:4px;border:1px solid var(--sky-line);border-radius:12px;background:rgb(255 255 255/.75)}
+.theme-switch-label{padding:0 8px 0 6px;color:var(--ink-3);font-size:13px;font-weight:600}
+.theme-switch button{display:inline-flex;min-height:36px;align-items:center;gap:7px;padding:0 12px;border:0;border-radius:9px;background:transparent;color:var(--ink-2);font-size:14px;font-weight:600;transition:background .15s,color .15s}
+.theme-switch button:hover{background:rgb(255 255 255/.9);color:var(--ink)}
+.theme-switch button[aria-checked=true]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgb(12 26 48/.14)}
+.theme-swatch{width:14px;height:14px;border-radius:4px;border:1px solid rgb(12 26 48/.18)}
+.theme-swatch.live-nostalgia-modern{background:linear-gradient(180deg,#bfeaff 0,#7fd0f3 48%,#49b3e2 50%,#6cc4ec 100%)}
+.theme-swatch.blobi{background:linear-gradient(135deg,#58b8f7 50%,#7ccb3a 50%)}
+</style>

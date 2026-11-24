@@ -1,0 +1,82 @@
+---
+import BlobAvatar from './BlobAvatar.astro';
+import en from '../content/demo/en.json';
+import es from '../content/demo/es.json';
+import { appThemeStyle, DEFAULT_APP_THEME, type AppThemeId, type AppThemeVariant } from '../lib/app-theme';
+
+interface Props { lang: 'en' | 'es'; variant?: AppThemeVariant; prefix?: string; theme?: AppThemeId; }
+const { lang, variant = 'light', prefix = 'hero', theme = DEFAULT_APP_THEME } = Astro.props as Props;
+const copy = lang === 'es' ? es : en;
+const groups = [
+  { id: 'favorites', title: copy.window.favorites, people: copy.contacts.filter((contact) => contact.group === 'favorites') },
+  { id: 'online', title: copy.window.onlineGroup, people: copy.contacts.filter((contact) => contact.group === 'online') },
+  { id: 'away', title: copy.window.awayGroup, people: copy.contacts.filter((contact) => contact.group === 'away') },
+];
+const presenceEntries = ['online', 'away', 'busy', 'invisible'] as const;
+const presenceOf = (value: string): typeof presenceEntries[number] => value as typeof presenceEntries[number];
+---
+
+<section class="app-copy app-contacts" data-app-contacts data-replica-id={prefix} data-presence="online" data-theme-variant={variant} data-app-theme={theme} style={appThemeStyle(variant, theme)} aria-label={copy.window.contactsTitle}>
+  <header class="app-framebar" aria-hidden="true">
+    <span class="frame-title"><img src="/brand/blobi-icon.svg" alt="" width="22" height="22"/><span class="title-default">{copy.window.contactsTitle}</span><span class="title-lnm">{copy.window.application}</span></span>
+    <span class="frame-controls"><i>−</i><i>□</i><i>×</i></span>
+  </header>
+  <div class="contacts-client">
+    <header class="contacts-hero">
+      <div class="contacts-hero-top">
+        <img class="contacts-wordmark" src="/brand/blobi-logo.svg" alt="Blobi" width="112" height="112"/>
+        <button class="theme-toggle" type="button" data-theme-toggle data-variant={variant} hidden={theme !== 'blobi'} aria-label={variant === 'light' ? copy.window.themeDark : copy.window.themeLight} aria-pressed={variant === 'dark' ? 'true' : 'false'}>
+          {variant === 'light' ? copy.window.themeDarkShort : copy.window.themeLightShort}
+        </button>
+      </div>
+      <div class="profile-card">
+        <BlobAvatar seed={3} presence="online" size={72} label={copy.window.profile}/>
+        <div class="profile-text">
+          <b>{copy.window.profile}<svg class="lnm-only name-caret" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></b>
+          <span class="profile-status"><span>{copy.window.personalStatus}</span><svg class="lnm-only status-pen" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
+          <div class="presence-control" data-presence-control>
+            <span class="presence-caption">{copy.window.showAs}</span>
+            <button class="presence-trigger" type="button" aria-haspopup="menu" aria-expanded="false" data-presence-trigger>
+              <span class="presence-dot" aria-hidden="true"></span>
+              <span data-current-presence>{copy.presence.online}</span>
+              <span class="presence-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="presence-menu" role="menu" aria-label={copy.window.showAs} hidden data-presence-menu>
+              {presenceEntries.map((presence, index) => <button type="button" role="menuitemradio" aria-checked={index === 0 ? 'true' : 'false'} tabindex={index === 0 ? 0 : -1} data-presence-option={presence}>
+                <span class="presence-dot" aria-hidden="true"></span><span>{copy.presence[presence]}</span>
+              </button>)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="contacts-panel">
+      <div class="contacts-search-row">
+        <label class="contacts-search"><span class="search-glyph" aria-hidden="true"></span><span class="visually-hidden">{copy.window.search}</span><input type="search" placeholder={copy.window.search} data-contact-search/></label>
+        <span class="add-contact" aria-hidden="true">+</span>
+      </div>
+      <div class="people-tabs" role="tablist" aria-label={copy.window.people}>
+        <span class="people-tab active" role="tab" aria-selected="true">{copy.window.people}</span>
+      </div>
+      <div class="contact-groups" data-contact-groups>
+        {groups.map((group) => <section class="contact-group" data-contact-group={group.id} aria-label={`${group.title} (${group.people.length})`}>
+          <h3><button type="button" aria-expanded="true" data-group-toggle={group.id}><span class="group-chevron" aria-hidden="true"></span>{group.id === 'favorites' ? <Fragment set:html={`<svg class="lnm-only group-icon star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></svg>`}/> : <Fragment set:html={`<svg class="lnm-only group-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`}/>}<span>{group.title} ({group.id === 'favorites' ? `${group.people.length}/${group.people.length}` : group.people.length})</span></button></h3>
+          <ul>
+            {group.people.map((person) => <li data-contact-item data-contact-search-text={`${person.name} ${person.status}`}>
+              <button class="app-contact-row" type="button" data-contact-open={person.id} data-person-status={person.status} data-person-presence={person.presence} data-conversation-target={person.id}>
+                <BlobAvatar seed={person.seed} presence={presenceOf(person.presence)} size={38} label={person.name}/>
+                <span class="contact-row-copy"><b><i class="inline-presence" data-presence={person.presence} aria-hidden="true"></i>{person.name}</b><small><span>{copy.presence[presenceOf(person.presence)]}</span>{person.status && <> — {person.status}</>}</small></span>
+              </button>
+            </li>)}
+          </ul>
+        </section>)}
+      </div>
+      <footer class="contacts-footer">
+        {prefix === 'hero' ? <a href="#themes"><img class="lnm-only footer-icon" src="/theme/live-nostalgia-modern/icons/themes.svg" alt="" width="18" height="18"/>{copy.window.themes}</a> : <span><img class="lnm-only footer-icon" src="/theme/live-nostalgia-modern/icons/themes.svg" alt="" width="18" height="18"/>{copy.window.themes}</span>}
+        <span><img class="lnm-only footer-icon" src="/theme/live-nostalgia-modern/icons/settings.svg" alt="" width="18" height="18"/>{copy.window.settings}</span>
+        <span class="lnm-only footer-chat"><img class="footer-icon" src="/theme/live-nostalgia-modern/icons/chat.svg" alt="" width="18" height="18"/>{copy.window.chat}<svg class="footer-caret" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></span>
+      </footer>
+    </div>
+  </div>
+</section>

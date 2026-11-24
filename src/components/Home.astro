@@ -1,0 +1,176 @@
+---
+import en from '../i18n/en.json';
+import es from '../i18n/es.json';
+import themeGallery from '../content/themes/gallery.json';
+import { registry } from '../content/features/registry';
+import AppContacts from './AppContacts.astro';
+import AppConversation from './AppConversation.astro';
+import WaitlistForm from './WaitlistForm.astro';
+import ThemeSwitch from './ThemeSwitch.astro';
+import '../styles/app-replica.css';
+
+const { lang = 'en' } = Astro.props as { lang: 'en' | 'es' };
+const copy = lang === 'es' ? es : en;
+const states = ['available', 'in-progress', 'planned'] as const;
+const features = registry.items;
+const themeStyle = (colors: Record<string, string>) => Object.entries(colors).map(([key, value]) => `--theme-${key}:${value}`).join(';');
+---
+
+<main id="main-content" class="home" data-home data-presence="online">
+  <div class="sky">
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <h1 id="hero-title">{copy.home.title.replace(/\.$/, '')}<span class="presence-period" aria-hidden="true"></span></h1>
+      <p class="hero-lead">{copy.home.lead}</p>
+      <WaitlistForm lang={lang} id="hero-waitlist"/>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-peek" aria-hidden="true" inert><AppConversation lang={lang} prefix="peek"/></div>
+      <div class="hero-contacts"><AppContacts lang={lang}/></div>
+      <p class="hero-hint">{copy.home.tryPresence}</p>
+      <ThemeSwitch lang={lang}/>
+    </div>
+  </section>
+
+  </div>
+
+  <section class="section wrap" id="demo" aria-labelledby="demo-title">
+    <header class="section-head"><h2 id="demo-title">{copy.home.windowsTitle}</h2><p>{copy.home.demoLead}</p></header>
+    <div class="demo-switch"><ThemeSwitch lang={lang}/></div>
+    <div class="demo-frame" id="conversation"><AppConversation lang={lang}/></div>
+  </section>
+
+  <section class="section wrap status" id="status" aria-labelledby="status-title">
+    <header class="section-head status-head"><h2 id="status-title">{copy.home.statusTitle}</h2><p>{copy.home.statusLead}</p></header>
+    <div class="status-groups">
+      {states.map((state) => <section class="status-group" data-state={state} aria-labelledby={`status-${state}`}>
+        <h3 id={`status-${state}`}><i class="lamp" aria-hidden="true"></i>{copy.status[state]}<span>{features.filter((item) => item.state === state).length}</span></h3>
+        <ul>{features.filter((item) => item.state === state).map((item) => <li><b>{item.name[lang]}</b><span>{item.summary[lang]}</span></li>)}</ul>
+      </section>)}
+    </div>
+  </section>
+
+  <section class="section wrap" id="themes" aria-labelledby="themes-title">
+    <header class="section-head"><h2 id="themes-title">{copy.home.themesTitle}</h2><p>{copy.home.themesLead}</p></header>
+    <ul class="theme-gallery" aria-label={copy.home.themeGallery}>
+      {themeGallery.map((item) => <li class="theme-card" style={themeStyle(item.colors)}>
+        <div class="theme-mini" aria-hidden="true">
+          <div class="mini-bar"><i></i><i></i><i></i></div>
+          <div class="mini-body">
+            <div class="mini-side"><span class="mini-me"></span><i></i><i></i><i></i></div>
+            <div class="mini-chat"><i class="in"></i><i class="out"></i><i class="in short"></i><i class="out short"></i></div>
+          </div>
+        </div>
+        <b>{item.name[lang]}</b><small>{item.source === 'built-in' ? ('looks' in item && item.looks === 'light-dark' ? copy.home.builtInTheme : copy.home.builtInThemeOne) : copy.home.communityTheme}</small>
+      </li>)}
+    </ul>
+  </section>
+
+  <section class="meadow" id="waitlist" aria-labelledby="closing-title">
+    <svg class="meadow-crest" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0 92 C220 36 430 30 690 70 C930 106 1180 104 1440 48 V140 H0 Z" fill="var(--grass-1)"/>
+      <path d="M0 116 C260 80 520 76 780 100 C1010 120 1230 116 1440 88 V140 H0 Z" fill="var(--grass-2)"/>
+    </svg>
+    <div class="wrap meadow-inner">
+      <img src="/brand/blobi-icon.svg" alt="" width="104" height="104" loading="lazy"/>
+      <h2 id="closing-title">{copy.home.closingTitle}</h2>
+      <p>{copy.home.closingText}</p>
+      <WaitlistForm lang={lang} id="closing-waitlist"/>
+    </div>
+  </section>
+</main>
+
+<script src="../scripts/home.ts"></script>
+<style>
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,560px);gap:56px;align-items:center;padding-block:56px 72px;min-height:calc(100svh - 64px);max-height:960px}
+.home{overflow-x:clip}
+.sky{margin-top:-65px;padding-top:65px;background:url(/theme/blobi/sky.svg) center top/cover no-repeat,var(--sky-top);-webkit-mask-image:none}
+.sky::after{display:block;height:56px;content:"";background:linear-gradient(transparent,var(--bg))}
+.sky .hero{padding-bottom:0}
+.hero-copy{max-width:560px}
+.hero-peek{display:none}
+.meadow img{transition:filter .4s var(--ease-out),rotate .4s var(--ease-out)}
+[data-presence=away] .meadow img{filter:saturate(.35)}
+[data-presence=busy] .meadow img{rotate:-6deg}
+[data-presence=invisible] .meadow img{opacity:.45}
+h1,h2{margin:0;color:var(--ink);font-family:var(--font-display);font-weight:720;font-stretch:88%;font-optical-sizing:auto;letter-spacing:-.012em;text-wrap:balance}
+h1{font-size:clamp(46px,6vw,80px);line-height:.98}
+.presence-period{display:inline-block;width:.19em;height:.19em;margin-left:.06em;border-radius:50%;background:var(--online);box-shadow:inset 0 0 0 .045em var(--online);transition:background-color .35s var(--ease-out),box-shadow .35s var(--ease-out),transform .35s var(--ease-out)}
+[data-presence=away] .presence-period{background:var(--away);box-shadow:inset 0 0 0 .045em var(--away)}
+[data-presence=busy] .presence-period{background:var(--busy);box-shadow:inset 0 0 0 .045em var(--busy)}
+[data-presence=invisible] .presence-period{background:transparent;box-shadow:inset 0 0 0 .045em var(--offline)}
+@media(forced-colors:active){.presence-period{background:CanvasText;box-shadow:none}}
+.hero-lead{max-width:46ch;margin:22px 0 32px;color:var(--ink-2);font-size:clamp(17px,1.4vw,19px);line-height:1.55}
+.hero-visual{position:relative;display:grid;justify-items:center;gap:14px}
+.hero-contacts{width:330px;max-width:100%;height:min(640px,calc(100svh - 190px));min-height:520px;overflow:hidden;border-radius:14px;box-shadow:var(--shadow-window);-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent)}
+.hero-contacts:has([data-presence-trigger][aria-expanded=true]){overflow:visible;-webkit-mask-image:none;mask-image:none}
+.hero-hint{max-width:330px;text-wrap:balance;text-align:center;margin:0;color:var(--ink-3);font-size:14px}
+
+.section{padding-block:96px 24px}
+.section-head{max-width:680px;margin-bottom:40px}
+h2{font-size:clamp(32px,3.6vw,46px);line-height:1.05}
+.section-head p{margin:16px 0 0;color:var(--ink-2);font-size:18px;line-height:1.55}
+.demo-frame{padding:0 0 8px}
+.demo-switch{margin:-16px 0 28px}
+.hero-visual :global(.theme-switch){position:relative;z-index:1}
+.demo-frame .app-conversation{border-radius:14px;box-shadow:var(--shadow-window)}
+
+.status{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:24px 72px;align-items:start}
+.status-head{position:sticky;top:96px;margin:0}
+.status-groups{display:grid;gap:40px}
+.status-group h3{display:flex;align-items:center;gap:10px;margin:0;padding-bottom:12px;border-bottom:1px solid var(--ink);font-size:15px;font-weight:700}
+.status-group h3 span{margin-left:auto;color:var(--ink-3);font-weight:500;font-variant-numeric:tabular-nums}
+.lamp{width:9px;height:9px;border-radius:50%;background:var(--offline)}
+[data-state=available] .lamp{background:var(--online)}
+[data-state=in-progress] .lamp{background:var(--away)}
+.status-group ul{margin:0;padding:0;list-style:none}
+.status-group li{display:grid;grid-template-columns:minmax(0,15em) minmax(0,1fr);gap:4px 32px;padding:14px 0;border-bottom:1px solid var(--line)}
+.status-group li b{font-size:16px;font-weight:600;line-height:1.4}
+.status-group li span{color:var(--ink-2);font-size:15px;line-height:1.5}
+
+.theme-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 24px;margin:0;padding:0;list-style:none}
+.theme-card{display:grid;gap:3px}
+.theme-mini{display:grid;grid-template-rows:auto 1fr;aspect-ratio:16/9;margin-bottom:12px;overflow:hidden;border:1px solid var(--theme-line);border-radius:14px;background:var(--theme-bg);box-shadow:0 1px 2px rgb(12 26 48/.06),0 14px 30px -18px rgb(12 26 48/.35);transition:transform .35s var(--ease-out),box-shadow .35s var(--ease-out)}
+.theme-card:hover .theme-mini{transform:translateY(-4px);box-shadow:0 1px 2px rgb(12 26 48/.06),0 22px 40px -20px rgb(12 26 48/.4)}
+.mini-bar{display:flex;gap:5px;justify-content:flex-end;padding:7px 10px;background:linear-gradient(90deg,var(--theme-hero),var(--theme-hero2))}
+.mini-bar i{width:8px;height:8px;border-radius:50%;background:var(--theme-panel);opacity:.85}
+.mini-body{display:grid;grid-template-columns:32% 1fr;gap:8px;padding:9px}
+.mini-side,.mini-chat{display:flex;flex-direction:column;gap:7px;padding:9px;border:1px solid var(--theme-line);border-radius:9px;background:var(--theme-panel)}
+.mini-me{width:22px;height:22px;border-radius:7px;background:var(--theme-accent)}
+.mini-side i{display:block;height:6px;border-radius:4px;background:var(--theme-ink2);opacity:.55}
+.mini-side i:nth-of-type(2){width:70%}
+.mini-chat{justify-content:flex-end;background:var(--theme-card)}
+.mini-chat i{display:block;flex:none;height:14px;border-radius:8px}
+.mini-chat .in{width:62%;background:var(--theme-panel);border:1px solid var(--theme-line)}
+.mini-chat .in.short{width:40%}
+.mini-chat .out{width:55%;align-self:flex-end;background:var(--theme-bubble)}
+.mini-chat .out.short{width:34%;background:var(--theme-accent);opacity:.85}
+.theme-card b{font-size:16px;font-weight:600}
+.theme-card small{color:var(--ink-3);font-size:14px}
+@media(max-width:900px){.theme-gallery{gap:24px 16px}}
+@media(max-width:640px){.theme-gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;gap:14px;margin-inline:-16px;padding:4px 16px 12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;scrollbar-width:none}.theme-card{scroll-snap-align:start}}
+@media(prefers-reduced-motion:reduce){.theme-mini{transition:none}}
+
+.meadow{position:relative;margin-top:120px;background:linear-gradient(var(--grass-2),var(--grass-3) 70%,var(--grass-deep));color:var(--grass-ink)}
+.meadow-crest{position:absolute;bottom:calc(100% - 3px);left:0;display:block;width:100%;height:clamp(64px,9vw,140px)}
+.meadow-inner{display:grid;justify-items:center;padding:24px 0 88px;text-align:center}
+.meadow img{margin-top:-64px;margin-bottom:16px;filter:drop-shadow(0 12px 14px rgb(11 48 9/.25))}
+.meadow h2{color:var(--grass-ink)}
+.meadow p{max-width:46ch;margin:14px 0 28px;color:var(--grass-ink);font-size:18px}
+.meadow .waitlist{width:100%;text-align:left}
+.meadow :global(.waitlist-row){border-color:rgb(255 255 255/.9);box-shadow:0 10px 30px -12px rgb(11 48 9/.45)}
+.meadow :global(.waitlist-row:has(:disabled)){background:rgb(255 255 255/.85);border-color:rgb(11 48 9/.25)}
+.meadow :global(.waitlist-note),.meadow :global(.waitlist-consent){color:var(--grass-ink)}
+
+
+@media(min-width:1001px){
+  .hero-visual{justify-items:start}
+  .hero-peek{position:absolute;top:56px;left:170px;display:block;width:1040px;transform:scale(.56);transform-origin:top left;border-radius:14px;box-shadow:var(--shadow-window);pointer-events:none}
+  .hero-peek .app-nudge-row{display:none}
+  .hero-contacts,.hero-hint{position:relative;z-index:1}
+}
+@media(max-width:1000px){.hero{grid-template-columns:1fr;max-height:none;min-height:0;gap:48px;padding-top:40px}.hero-copy{max-width:640px}}
+@media(max-width:900px){.status{grid-template-columns:1fr}.status-head{position:static;margin-bottom:16px}}
+@media(max-width:800px){.status-group li{grid-template-columns:1fr}.demo-frame{padding:0;border:0;background:none}}
+@media(max-width:640px){.meadow{margin-top:88px}.meadow-inner{padding-bottom:64px}.hero{padding-bottom:16px}.section{padding-top:64px}.hero-contacts{height:520px}}
+</style>

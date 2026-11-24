@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <!-- Live Nostalgia Modern (aero-glass) colour icon: glossy blue gear. Original Blobi artwork. -->
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7CCBFA"/><stop offset=".5" stop-color="#2C8DE6"/><stop offset="1" stop-color="#1663B8"/></linearGradient>
+  </defs>
+  <path d="M17 3h6l1 4.6a13 13 0 0 1 3.4 1.4l4-2.6 4.2 4.2-2.6 4a13 13 0 0 1 1.4 3.4L39 17v6l-4.6 1a13 13 0 0 1-1.4 3.4l2.6 4-4.2 4.2-4-2.6a13 13 0 0 1-3.4 1.4L23 39h-6l-1-4.6a13 13 0 0 1-3.4-1.4l-4 2.6-4.2-4.2 2.6-4A13 13 0 0 1 5.6 24L1 23v-6l4.6-1A13 13 0 0 1 7 12.6l-2.6-4 4.2-4.2 4 2.6A13 13 0 0 1 16 5.6z" fill="url(#b)" stroke="#0F4F96" stroke-width="1.4" stroke-linejoin="round"/>
+  <circle cx="20" cy="20" r="6.2" fill="#fff" stroke="#0F4F96" stroke-width="1.4"/>
+  <path d="M8 13c3-5 9-7.5 15-6.5" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="2.6" stroke-linecap="round"/>
+</svg>

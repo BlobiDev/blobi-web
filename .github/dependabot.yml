@@ -1,0 +1,46 @@
+# Dependency policy (2026-11-22):
+# - Version updates: only minor and patch. Security updates are not filtered by `update-types`.
+# - Minor and patch updates are grouped into one PR per entry. No automerge.
+# - Security updates need Dependabot alerts and security updates enabled in this repository's settings.
+version: 2
+
+updates:
+  - package-ecosystem: docker
+    directory: /
+    schedule: { interval: weekly }
+    allow:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-minor", "version-update:semver-patch"]
+    ignore:
+      # nginx: even minors are stable, odd ones mainline; stay on the stable line, change lines by hand.
+      - dependency-name: "nginxinc/nginx-unprivileged"
+        update-types: ["version-update:semver-minor"]
+    groups:
+      web-images-minor-patch:
+        applies-to: version-updates
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: weekly }
+    allow:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-minor", "version-update:semver-patch"]
+    groups:
+      actions-minor-patch:
+        applies-to: version-updates
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: npm
+    directory: /
+    schedule: { interval: weekly }
+    allow:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-minor", "version-update:semver-patch"]
+    groups:
+      web-npm-minor-patch:
+        applies-to: version-updates
+        patterns: ["*"]
+        update-types: ["minor", "patch"]

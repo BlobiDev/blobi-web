@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 80" preserveAspectRatio="none">
+  <!-- Live Nostalgia Modern: conversation header ribbons (original Blobi artwork). -->
+  <defs>
+    <linearGradient id="r" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#FFFFFF" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#E4F7FF" stop-opacity=".25"/>
+    </linearGradient>
+  </defs>
+  <path d="M0 46C110 6 210 66 320 30S420 12 440 16v16C390 24 360 52 320 56S120 34 0 70z" fill="url(#r)"/>
+  <path d="M0 74C120 40 230 84 330 56S420 40 440 44" fill="none" stroke="#9ED9F2" stroke-width="2" stroke-opacity=".6"/>
+</svg>

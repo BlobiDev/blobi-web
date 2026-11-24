@@ -1,0 +1,17 @@
+@import '@fontsource-variable/figtree';
+@import '@fontsource-variable/bricolage-grotesque/standard.css';
+@import './tokens.css';
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px;background:var(--bg)}
+body{margin:0;overflow-x:hidden;color:var(--ink);background:var(--bg);font:17px/1.6 var(--font-sans);-webkit-font-smoothing:antialiased}
+button,input{font:inherit}button{color:inherit;cursor:pointer}
+a{color:var(--accent);text-underline-offset:.2em;text-decoration-thickness:1px}
+::selection{background:var(--accent-soft);color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent)!important;outline-offset:3px!important}
+[hidden]{display:none!important}
+.skip-link{position:fixed;z-index:100;top:8px;left:8px;transform:translateY(-150%);padding:10px 14px;border-radius:8px;background:var(--ink);color:#fff;font-weight:700}.skip-link:focus{transform:none}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.wrap{width:min(1200px,calc(100% - 32px));margin-inline:auto}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(forced-colors:active){:focus-visible{outline:2px solid Highlight!important}}

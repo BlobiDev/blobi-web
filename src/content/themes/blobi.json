@@ -1,0 +1,184 @@
+{
+  "format": 2,
+  "id": "blobi",
+  "name": {
+    "en": "Blobi",
+    "es": "Blobi"
+  },
+  "description": {
+    "en": "The Blobi look: soft sky-blue glass with floating translucent panels, green highlights and the Blobi mascots. Light and dark.",
+    "es": "El aspecto de Blobi: cristal azul cielo con paneles translúcidos flotantes, resaltados verdes y las mascotas de Blobi. Claro y oscuro."
+  },
+  "author": "Blobi",
+  "license": "CC-BY-4.0",
+  "version": "1.0.0",
+  "dark": false,
+  "finish": "glossy",
+  "colors": {
+    "bg": "#E3F1FC",
+    "panel": "#FFFFFFD6",
+    "card": "#F2F8FF",
+    "hover": "#DDF2FF",
+    "line": "#C2DAEE",
+    "ink": "#172B4D",
+    "ink2": "#4B6585",
+    "ink3": "#5D6E83",
+    "accent": "#0A74DA",
+    "accent2": "#7CCB3A",
+    "accent-soft": "#CDEEFF",
+    "frame": "#BDE0F8",
+    "hero": "#58B8F7",
+    "hero2": "#E4F6FF",
+    "hero-blob": "#7CCB3A",
+    "on-hero": "#172B4D",
+    "bubble-me": "#E2F4C6",
+    "bubble-them": "#FFFFFF",
+    "on-accent": "#FFFFFF",
+    "primary": "#5DBB2A",
+    "section": "#C9E3F7",
+    "section-ink": "#123C70",
+    "tab-on": "#FFFFFF",
+    "tab-on2": "#D2EEFF",
+    "tab-off": "#FFFFFF73",
+    "highlight": "#FFFFFF",
+    "button": "#EAF3FC",
+    "button2": "#FFFFFF",
+    "input": "#FFFFFFEE",
+    "input-line": "#B7D3EA",
+    "selected": "#BDEBFF",
+    "disabled": "#7D93AD",
+    "history": "#FFFFFFC4"
+  },
+  "decor": {
+    "avatar-frame": true,
+    "presence-inline": true,
+    "bubbles": false,
+    "flat-bubbles": true,
+    "text-only": false
+  },
+  "layout": {
+    "header-compact": true
+  },
+  "fx": {
+    "gloss": 0.75,
+    "glow": 0.45,
+    "depth": 0.35,
+    "wave-opacity": 1.0,
+    "gradient": 0.85,
+    "roundness": 0.9
+  },
+  "metrics": {
+    "window-radius": 14,
+    "panel-inset": 10,
+    "panel-radius": 18,
+    "hero-logo": 112,
+    "tab-height": 40,
+    "tab-radius": 14,
+    "tab-gap": 5,
+    "tab-lift": 4,
+    "header-height": 98,
+    "avatar-size": 38,
+    "row-height": 52,
+    "sidebar-width": 270,
+    "panel-padding": 18,
+    "message-gap": 18,
+    "bubble-radius": 10,
+    "button-radius": 16,
+    "input-height": 46
+  },
+  "assets": {
+    "hero": "hero.svg",
+    "header": "header.svg"
+  },
+  "backgrounds": {
+    "conversation": [
+      {
+        "file": "sky.svg",
+        "anchor": 0,
+        "opacity": 1.0
+      }
+    ],
+    "main": [
+      {
+        "file": "sky.svg",
+        "anchor": 0,
+        "opacity": 1.0
+      }
+    ]
+  },
+  "variants": {
+    "dark": {
+      "colors": {
+        "bg": "#0F1B2B",
+        "panel": "#162538D9",
+        "card": "#1B2D44",
+        "hover": "#22385A",
+        "line": "#2B4468",
+        "ink": "#E8F1FB",
+        "ink2": "#A9BED6",
+        "ink3": "#93ABC7",
+        "accent": "#3A8DEB",
+        "accent2": "#8FD94B",
+        "accent-soft": "#1F4170",
+        "frame": "#0F2036",
+        "hero": "#1B5C9E",
+        "hero2": "#0F2B4A",
+        "hero-blob": "#7CCB3A",
+        "on-hero": "#F2F8FF",
+        "bubble-me": "#2E4E22",
+        "bubble-them": "#1C2F47",
+        "on-accent": "#FFFFFF",
+        "primary": "#2F8A1A",
+        "section": "#1E3A5F",
+        "section-ink": "#BFE0FF",
+        "tab-on": "#22395A",
+        "tab-on2": "#2A4A78",
+        "tab-off": "#FFFFFF14",
+        "highlight": "#FFFFFF",
+        "button": "#203654",
+        "button2": "#2A4468",
+        "input": "#0F2036F2",
+        "input-line": "#34507A",
+        "selected": "#1D4A7A",
+        "disabled": "#6E86A6",
+        "history": "#0F2036CC"
+      },
+      "finish": "glossy",
+      "fx": {
+        "gloss": 0.4,
+        "glow": 0.6,
+        "depth": 0.5,
+        "wave-opacity": 1.0,
+        "gradient": 0.6,
+        "roundness": 0.9
+      },
+      "decor": {
+        "avatar-frame": true,
+        "presence-inline": true,
+        "bubbles": false,
+        "flat-bubbles": true,
+        "text-only": false
+      },
+      "assets": {
+        "hero": "hero-dark.svg",
+        "header": "header-dark.svg"
+      },
+      "backgrounds": {
+        "conversation": [
+          {
+            "file": "sky-dark.svg",
+            "anchor": 0,
+            "opacity": 1.0
+          }
+        ],
+        "main": [
+          {
+            "file": "sky-dark.svg",
+            "anchor": 0,
+            "opacity": 1.0
+          }
+        ]
+      }
+    }
+  }
+}

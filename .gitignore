@@ -1,0 +1,32 @@
+node_modules/
+dist/
+.astro/
+# Internal agent/AI-workflow material: never commit
+TASKS_*.md
+AGENTS.md
+CLAUDE.md
+.agents/
+.claude/
+.impeccable/
+docs/reports/
+docs/assignments/
+docs/plans/
+docs/audits/
+docs/prompts/
+docs/sessions/
+
+# Secrets and local environment: only explicit templates are versioned
+.env
+.env.*
+!.env.example
+.envrc
+*.env
+!*.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.dump
+id_rsa*
+id_ed25519*

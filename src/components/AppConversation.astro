@@ -1,0 +1,43 @@
+---
+import BlobAvatar from './BlobAvatar.astro';
+import en from '../content/demo/en.json';
+import es from '../content/demo/es.json';
+import { appThemeStyle, DEFAULT_APP_THEME, type AppThemeId, type AppThemeVariant } from '../lib/app-theme';
+interface Props { lang: 'en' | 'es'; variant?: AppThemeVariant; prefix?: string; theme?: AppThemeId; }
+const { lang, variant = 'light', prefix = 'hero', theme = DEFAULT_APP_THEME } = Astro.props as Props;
+const copy = lang === 'es' ? es : en;
+type Presence = 'online' | 'away' | 'busy' | 'invisible';
+type Message = { kind: 'day'|'message'|'emoji'|'attachment'; text?: string; sender?: string; seed?: number; presence?: Presence; time?: string; mine?: boolean; emoji?: string; name?: string; size?: string; type?: string; reactions?: {emoji:string;count:number}[] };
+const presenceOf = (value: string) => value as Presence;
+const presenceLabel = (presence: string) => copy.presence[presenceOf(presence)];
+const messageSections = ['mika','ana-luz','weekend','general'] as const;
+const messages = copy.messages as unknown as Record<(typeof messageSections)[number], Message[]>;
+---
+<section class="app-copy app-conversation" data-app-conversation data-app-copy data-replica-id={prefix} data-theme-variant={variant} data-app-theme={theme} style={appThemeStyle(variant, theme)} aria-label={copy.window.conversation}>
+  <header class="app-framebar" aria-hidden="true"><span class="frame-title"><img src="/brand/blobi-icon.svg" alt="" width="22" height="22"/><span>{copy.window.conversationTitle}</span></span><span class="frame-controls"><i>−</i><i>□</i><i>×</i></span></header>
+  <div class="conversation-client">
+    <div class="conversation-tabs" role="tablist" aria-label={copy.window.conversation}>
+      {copy.tabs.map((tab, index) => <button type="button" role="tab" id={`${prefix}-app-tab-${tab.id}`} aria-controls={`${prefix}-app-panel-${tab.id}`} aria-selected={index === 0 ? 'true' : 'false'} tabindex={index === 0 ? 0 : -1} class="app-conversation-tab" data-app-tab={tab.id} data-tab-name={tab.name} data-kind={tab.kind} data-seed={tab.seed} data-presence={tab.presence} data-status={tab.status}>
+        {tab.kind === 'person' ? <BlobAvatar seed={tab.seed} presence={presenceOf(tab.presence)} size={24} label={tab.name}/> : <span class:list={['app-tile', tab.kind]} aria-hidden="true">{tab.kind === 'channel' ? '#' : <i><b></b><b></b><b></b></i>}</span>}
+        <span class="tab-title">{tab.name}</span><span class="unread-badge" data-unread-badge hidden aria-label={copy.window.unreadOne}>1</span><span class="tab-close" aria-hidden="true">×</span>
+      </button>)}<span class="tab-spacer"></span><span class="conversation-gear" aria-hidden="true">•••</span>
+    </div>
+    <div class="conversation-client-body" data-shake-surface>
+      <header class="conversation-header-card"><BlobAvatar seed={copy.tabs[0].seed} presence={presenceOf(copy.tabs[0].presence)} size={52} label={copy.tabs[0].name}/><div class="conversation-header-copy"><b data-active-name>{copy.tabs[0].name}</b><small><span class="presence-dot" aria-hidden="true"></span><span data-active-presence>{presenceLabel(copy.tabs[0].presence)}</span><span data-active-status>{copy.tabs[0].status && ` • ${copy.tabs[0].status}`}</span></small></div><div class="conversation-header-art" aria-hidden="true"></div><span class="header-more" aria-hidden="true">•••</span></header><div class="lnm-only action-bar" aria-hidden="true"><span><svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>{copy.window.actionInvite}</span><span><svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>{copy.window.actionFiles}</span><span><svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>{copy.window.actionNudge}</span></div><div class="lnm-only to-bar">{copy.window.to} <span data-active-to>{copy.tabs[0].name}</span></div><div class="lnm-only picture contact" aria-hidden="true" data-active-picture><BlobAvatar seed={copy.tabs[0].seed} presence={presenceOf(copy.tabs[0].presence)} size={96} label={copy.tabs[0].name}/></div><div class="lnm-only picture me" aria-hidden="true"><BlobAvatar seed={3} presence="online" size={96} label={copy.window.profile}/></div>
+      {messageSections.map((tabId, index) => <div class="conversation-history" role="tabpanel" id={`${prefix}-app-panel-${tabId}`} aria-labelledby={`${prefix}-app-tab-${tabId}`} hidden={index !== 0} data-app-history={tabId}>
+        <div class="day-marker"><span>{messages[tabId][0]?.text}</span></div>
+        <div class="message-sequence" role="log" aria-live="polite" aria-relevant="additions text" aria-label={`${copy.window.conversation}: ${copy.tabs.find((tab) => tab.id === tabId)?.name ?? tabId}`} data-message-sequence={tabId}>
+          {messages[tabId].filter((message) => message.kind !== 'day').map((message) => <article class:list={['message-row', message.mine && 'own-message']} data-static-row>
+            <BlobAvatar seed={message.seed ?? 0} presence={message.presence ?? 'online'} size={38} label={message.sender}/><div class="message-row-content"><div class="message-meta"><b style={`--sender-color:var(--app-avatar-${message.seed ?? 0})`}>{message.sender}</b><time>{message.time}</time></div>
+              {message.kind === 'emoji' ? <div class="jumbo-emoji" aria-label={message.emoji}>{message.emoji}</div> : message.kind === 'attachment' ? <div class="attachment-card"><BlobAvatar seed={1} presence="online" size={38} label="Mika"/><span><b>{message.name}</b><small>{message.size} • {message.type}</small></span></div> : <p class="message-text">{message.text}</p>}
+              {'reactions' in message && message.reactions && <div class="reaction-row">{message.reactions.map((reaction) => <span class="reaction-pill"><span aria-hidden="true">{reaction.emoji}</span><span>{reaction.count}</span></span>)}</div>}
+            </div>
+          </article>)}
+        </div>
+      </div>)}
+      <footer class="conversation-composer"><div class="lnm-only composer-strip" aria-hidden="true"><svg class="strip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg><svg class="strip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM8 14s1.5 2 4 2 4-2 4-2M9 9h1M15 9h1"/></svg><span>{copy.window.emojiHint}</span></div><div class="composer-input"><input type="text" disabled placeholder={copy.window.compose} aria-label={copy.window.compose}/></div><div class="composer-tools" aria-label={copy.window.composerTools}><button type="button" disabled>{copy.window.emoji}</button><button type="button" disabled>{copy.window.image}</button><button type="button" disabled>{copy.window.attach}</button><button type="button" disabled>{copy.window.people}</button><button class="send-button" type="button" disabled>{copy.window.send}</button></div></footer>
+    </div>
+    <div class="lnm-only status-bar" aria-hidden="true">{copy.window.tip}</div>
+  </div>
+  <div class="app-nudge-row"><button class="app-nudge-button" type="button" data-nudge>{copy.window.nudge}</button><button class="app-replay-button" type="button" data-replay>{copy.window.replay}</button></div>
+</section>

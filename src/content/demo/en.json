@@ -1,0 +1,332 @@
+{
+  "window": {
+    "contactsTitle": "Contacts — Blobi",
+    "conversationTitle": "Mika (+2) — Blobi",
+    "application": "Blobi",
+    "profile": "Sky",
+    "personalStatus": "Up for a chat",
+    "search": "Search contacts…",
+    "people": "People",
+    "showAs": "Show me as",
+    "themeLight": "Use light appearance",
+    "themeDark": "Use dark appearance",
+    "themeLightShort": "Light",
+    "themeDarkShort": "Dark",
+    "openConversations": "Open conversations",
+    "themes": "Themes",
+    "settings": "Settings",
+    "addContact": "Add contact",
+    "favorites": "Favorites",
+    "onlineGroup": "Online",
+    "awayGroup": "Away",
+    "nudge": "Send a nudge",
+    "replay": "Replay",
+    "compose": "Write a message to Mika…",
+    "conversation": "Conversation",
+    "emptyConversation": "No messages yet.",
+    "statusLine": "{presence} — {status}",
+    "composerTools": "Message tools",
+    "emoji": "Emoji",
+    "image": "Image",
+    "attach": "Attach",
+    "send": "Send",
+    "unreadOne": "1 unread message",
+    "chat": "Chat",
+    "to": "To:",
+    "actionInvite": "Invite",
+    "actionFiles": "Send files",
+    "actionNudge": "Nudge",
+    "emojiHint": "Type :smile: or :) for emoji",
+    "tip": "Tip: type :smile: or :) to insert an emoji"
+  },
+  "presence": {
+    "online": "Online",
+    "away": "Away",
+    "busy": "Busy",
+    "invisible": "Invisible"
+  },
+  "contacts": [
+    {
+      "id": "ana-luz",
+      "name": "Ana Luz",
+      "seed": 0,
+      "presence": "online",
+      "group": "favorites",
+      "status": "♪ lo-fi and debugging"
+    },
+    {
+      "id": "mika",
+      "name": "Mika",
+      "seed": 1,
+      "presence": "online",
+      "group": "favorites",
+      "status": "Live tonight: Pixel Pond ★"
+    },
+    {
+      "id": "nori",
+      "name": "Nori",
+      "seed": 5,
+      "presence": "online",
+      "group": "favorites",
+      "status": "New haircut, guess who?"
+    },
+    {
+      "id": "juno",
+      "name": "Juno",
+      "seed": 6,
+      "presence": "online",
+      "group": "online",
+      "status": "Shipping Friday!"
+    },
+    {
+      "id": "kai",
+      "name": "Kai",
+      "seed": 3,
+      "presence": "online",
+      "group": "online",
+      "status": "Trying dark mode"
+    },
+    {
+      "id": "pepe",
+      "name": "Pepe",
+      "seed": 7,
+      "presence": "away",
+      "group": "away",
+      "status": "zzz"
+    },
+    {
+      "id": "theo",
+      "name": "Theo",
+      "seed": 2,
+      "presence": "away",
+      "group": "away",
+      "status": "Back in five, coffee"
+    },
+    {
+      "id": "sam",
+      "name": "Sam",
+      "seed": 4,
+      "presence": "busy",
+      "group": "away",
+      "status": "In a meeting, message me later"
+    }
+  ],
+  "tabs": [
+    {
+      "id": "mika",
+      "name": "Mika",
+      "kind": "person",
+      "seed": 1,
+      "presence": "online",
+      "status": "Live tonight: Pixel Pond ★"
+    },
+    {
+      "id": "ana-luz",
+      "name": "Ana Luz",
+      "kind": "person",
+      "seed": 0,
+      "presence": "online",
+      "status": "♪ lo-fi and debugging"
+    },
+    {
+      "id": "weekend",
+      "name": "Excursión del finde",
+      "kind": "group",
+      "seed": 6,
+      "presence": "online",
+      "status": ""
+    },
+    {
+      "id": "general",
+      "name": "general",
+      "kind": "channel",
+      "seed": 0,
+      "presence": "online",
+      "status": ""
+    }
+  ],
+  "messages": {
+    "mika": [
+      {
+        "kind": "day",
+        "text": "Today • Wednesday, November 11, 2026"
+      },
+      {
+        "kind": "message",
+        "sender": "Mika",
+        "seed": 1,
+        "presence": "online",
+        "time": "9:31 PM",
+        "text": "Hey! Did you see the new Blobi? The tabs look lovely"
+      },
+      {
+        "kind": "message",
+        "sender": "Sky",
+        "seed": 3,
+        "presence": "online",
+        "time": "9:33 PM",
+        "mine": true,
+        "text": "Already trying it, even the nudge works"
+      },
+      {
+        "kind": "message",
+        "sender": "Mika",
+        "seed": 1,
+        "presence": "online",
+        "time": "9:35 PM",
+        "text": "Haha, love it. I'm streaming Pixel Pond tonight",
+        "reactions": [
+          {
+            "emoji": "😍",
+            "count": 2
+          },
+          {
+            "emoji": "😮",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "kind": "emoji",
+        "sender": "Mika",
+        "seed": 1,
+        "presence": "online",
+        "time": "9:36 PM",
+        "emoji": "😍"
+      },
+      {
+        "kind": "message",
+        "sender": "Mika",
+        "seed": 1,
+        "presence": "online",
+        "time": "9:37 PM",
+        "text": "Drop by #general when it starts"
+      },
+      {
+        "kind": "attachment",
+        "sender": "Mika",
+        "seed": 1,
+        "presence": "online",
+        "time": "9:38 PM",
+        "name": "playlist-lofi.png",
+        "size": "248 KB",
+        "type": "Image",
+        "reactions": [
+          {
+            "emoji": "😍",
+            "count": 1
+          },
+          {
+            "emoji": "😮",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "ana-luz": [
+      {
+        "kind": "day",
+        "text": "Today • Wednesday, November 11, 2026"
+      },
+      {
+        "kind": "message",
+        "sender": "Ana Luz",
+        "seed": 0,
+        "presence": "online",
+        "time": "8:58 PM",
+        "text": "I'll send you the lo-fi playlist here in a moment"
+      },
+      {
+        "kind": "message",
+        "sender": "Sky",
+        "seed": 3,
+        "presence": "online",
+        "time": "9:02 PM",
+        "mine": true,
+        "text": "Perfect, I need it to focus"
+      },
+      {
+        "kind": "message",
+        "sender": "Ana Luz",
+        "seed": 0,
+        "presence": "online",
+        "time": "9:03 PM",
+        "text": "I have two more lists for you"
+      }
+    ],
+    "weekend": [
+      {
+        "kind": "day",
+        "text": "Today • Wednesday, November 11, 2026"
+      },
+      {
+        "kind": "message",
+        "sender": "Theo",
+        "seed": 2,
+        "presence": "away",
+        "time": "7:40 PM",
+        "text": "Meet at the station at 8?"
+      },
+      {
+        "kind": "message",
+        "sender": "Nori",
+        "seed": 5,
+        "presence": "online",
+        "time": "7:42 PM",
+        "text": "I'll bring the thermos with tea"
+      },
+      {
+        "kind": "message",
+        "sender": "Juno",
+        "seed": 6,
+        "presence": "online",
+        "time": "7:44 PM",
+        "text": "And I'll bring the camera. I promise not to take 400 photos"
+      },
+      {
+        "kind": "message",
+        "sender": "Sky",
+        "seed": 3,
+        "presence": "online",
+        "time": "7:50 PM",
+        "mine": true,
+        "text": "Done. Bring a coat; it gets cold on Saturday"
+      }
+    ],
+    "general": []
+  },
+  "unreadMessage": {
+    "tab": "weekend",
+    "sender": "Theo",
+    "seed": 2,
+    "presence": "away",
+    "time": "7:40 PM",
+    "text": "Meet at the station at 8?"
+  },
+  "nudgeSystem": "You sent a nudge to {name}",
+  "themeStudio": {
+    "title": "Theme Studio",
+    "description": "The desktop prototype includes a Theme Studio for editing a copy of the built-in theme.",
+    "myThemes": "My Themes",
+    "editor": "Editor",
+    "newTheme": "New theme",
+    "import": "Import…",
+    "inUse": "In use",
+    "customise": "Customise",
+    "duplicate": "Duplicate",
+    "export": "Export…",
+    "status": "In development"
+  },
+  "home": {
+    "windowsTitle": "Contacts on one side, conversations in tabs",
+    "windowsLead": "The desktop prototype shows the two-window layout, with light and dark appearances.",
+    "separate": "Contacts and conversations in separate windows",
+    "appearance": "Light and dark appearances",
+    "tabMove": "Tabs you can drag between windows",
+    "privacyTitle": "Privacy, written down",
+    "themesTitle": "Pick a look. Make your own.",
+    "themeLead": "One built-in theme, shown in both appearances.",
+    "closingTitle": "Blobi is still being built",
+    "closingText": "Follow along on the blog or subscribe to the feed. When a preview is ready, the download page will say so."
+  }
+}

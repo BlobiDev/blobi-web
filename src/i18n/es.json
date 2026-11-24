@@ -1,0 +1,78 @@
+{
+  "skip": "Saltar al contenido",
+  "nav": {
+    "main": "Navegación principal",
+    "language": "Idioma",
+    "demo": "Demo",
+    "status": "Estado",
+    "themes": "Temas",
+    "waitlist": "Lista de espera"
+  },
+  "brand": {
+    "home": "Inicio de Blobi",
+    "mascot": "La mascota de Blobi"
+  },
+  "status": {
+    "available": "Disponible",
+    "in-progress": "En desarrollo",
+    "planned": "Previsto",
+    "project": "En desarrollo, sin versión publicada"
+  },
+  "home": {
+    "metaTitle": "Blobi: tus amigos, en línea otra vez",
+    "title": "Tus amigos, en línea otra vez.",
+    "lead": "Blobi es un mensajero de escritorio para Linux, Windows y macOS. Tus contactos tienen su propia ventana, los chats se abren en pestañas y se está construyendo sobre XMPP, el estándar abierto de mensajería.",
+    "tryPresence": "Pruébalo: cambia tu estado en la ventana de contactos o cambia el tema.",
+    "windowsTitle": "Los contactos en una ventana, las conversaciones en otra",
+    "demoLead": "Haz clic en un contacto para abrir una pestaña, manda un zumbido o repite el chat. Es una demostración guionizada que corre en tu navegador y no envía nada a ningún sitio.",
+    "statusTitle": "Lo que hay hasta ahora",
+    "statusLead": "Blobi todavía no tiene versión pública. Esta lista dice en qué punto está cada parte del prototipo de escritorio.",
+    "themesTitle": "Que se parezca a ti",
+    "themesLead": "Blobi trae dos temas: Live Nostalgia Modern, y Blobi en versión clara y oscura. Los otros ocho son paquetes de la comunidad, y el editor Theme Studio sigue en desarrollo.",
+    "themeGallery": "Galería de temas",
+    "builtInTheme": "Integrado, claro y oscuro",
+    "communityTheme": "Tema de la comunidad",
+    "closingTitle": "¿Quieres saber cuándo podrás probarlo?",
+    "closingText": "Déjanos tu correo y te escribiremos cuando haya una versión que puedas instalar.",
+    "builtInThemeOne": "Integrado"
+  },
+  "waitlist": {
+    "label": "Correo electrónico",
+    "placeholder": "tu@ejemplo.com",
+    "button": "Apuntarme",
+    "consent": "Quiero recibir correos sobre las versiones de Blobi. Puedo darme de baja cuando quiera.",
+    "note": "Guardamos tu correo en el servidor del propio proyecto Blobi y enviamos el correo de confirmación con Zoho Mail.",
+    "closed": "La lista de espera aún no está abierta. Vuelve pronto.",
+    "trap": "Deja este campo vacío"
+  },
+  "footer": {
+    "privacy": "Este sitio no usa cookies, analítica ni peticiones a terceros."
+  },
+  "thanks": {
+    "metaTitle": "Revisa tu correo · Blobi",
+    "title": "Revisa tu correo",
+    "text": "Te hemos enviado un correo. Abre el enlace que trae para confirmar tu sitio en la lista de espera. Si no llega en unos minutos, mira en la carpeta de spam.",
+    "back": "Volver a Blobi"
+  },
+  "themeSwitch": {
+    "label": "Tema"
+  },
+  "invite": {
+    "metaTitle": "Tu invitación · Blobi",
+    "title": "Tu invitación a Blobi",
+    "back": "Volver a Blobi",
+    "states": {
+      "checking": "Comprobando tu invitación…",
+      "noscript": "Esta página necesita JavaScript para comprobar tu invitación. Guarda el enlace: es tu invitación.",
+      "pending": "Esta invitación es válida hasta el {date}. Podrás crear tu cuenta cuando la aplicación esté disponible. Guarda este enlace.",
+      "used": "Esta invitación ya se utilizó.",
+      "expired": "Esta invitación ha caducado.",
+      "revoked": "Esta invitación fue revocada.",
+      "invalid": "Esta invitación no es válida. Comprueba que copiaste el enlace completo.",
+      "missing": "Abre esta página desde el enlace de invitación que recibiste.",
+      "unavailable": "Ahora mismo no se pueden comprobar invitaciones. Guarda tu enlace e inténtalo más tarde.",
+      "error": "No pudimos comprobar tu invitación. Inténtalo de nuevo en un momento.",
+      "busy": "Demasiados intentos. Espera un minuto e inténtalo de nuevo."
+    }
+  }
+}

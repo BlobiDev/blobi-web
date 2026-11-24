@@ -1,0 +1,332 @@
+{
+  "window": {
+    "contactsTitle": "Contactos — Blobi",
+    "conversationTitle": "Mika (+2) — Blobi",
+    "application": "Blobi",
+    "profile": "Sky",
+    "personalStatus": "Con ganas de hablar",
+    "search": "Buscar contactos…",
+    "people": "Personas",
+    "showAs": "Muéstrame como",
+    "themeLight": "Usar apariencia clara",
+    "themeDark": "Usar apariencia oscura",
+    "themeLightShort": "Clara",
+    "themeDarkShort": "Oscura",
+    "openConversations": "Abrir conversaciones",
+    "themes": "Temas",
+    "settings": "Ajustes",
+    "addContact": "Añadir contacto",
+    "favorites": "Favoritos",
+    "onlineGroup": "En línea",
+    "awayGroup": "Ausentes",
+    "nudge": "Enviar un zumbido",
+    "replay": "Repetir",
+    "compose": "Escribe un mensaje a Mika…",
+    "conversation": "Conversación",
+    "emptyConversation": "Aún no hay mensajes.",
+    "statusLine": "{presence} — {status}",
+    "composerTools": "Herramientas del mensaje",
+    "emoji": "Emoji",
+    "image": "Imagen",
+    "attach": "Adjuntar",
+    "send": "Enviar",
+    "unreadOne": "1 mensaje sin leer",
+    "chat": "Chat",
+    "to": "Para:",
+    "actionInvite": "Invitar",
+    "actionFiles": "Enviar archivos",
+    "actionNudge": "Zumbido",
+    "emojiHint": "Escribe :smile: o :) para emojis",
+    "tip": "Consejo: escribe :smile: o :) para insertar un emoji"
+  },
+  "presence": {
+    "online": "En línea",
+    "away": "Ausente",
+    "busy": "Ocupado",
+    "invisible": "Invisible"
+  },
+  "contacts": [
+    {
+      "id": "ana-luz",
+      "name": "Ana Luz",
+      "seed": 0,
+      "presence": "online",
+      "group": "favorites",
+      "status": "♪ lo-fi y depurando"
+    },
+    {
+      "id": "mika",
+      "name": "Mika",
+      "seed": 1,
+      "presence": "online",
+      "group": "favorites",
+      "status": "Directo esta noche: Pixel Pond ★"
+    },
+    {
+      "id": "nori",
+      "name": "Nori",
+      "seed": 5,
+      "presence": "online",
+      "group": "favorites",
+      "status": "Nuevo corte de pelo, ¿quién soy?"
+    },
+    {
+      "id": "juno",
+      "name": "Juno",
+      "seed": 6,
+      "presence": "online",
+      "group": "online",
+      "status": "¡¡entrego el viernes!!"
+    },
+    {
+      "id": "kai",
+      "name": "Kai",
+      "seed": 3,
+      "presence": "online",
+      "group": "online",
+      "status": "Probando el modo oscuro"
+    },
+    {
+      "id": "pepe",
+      "name": "Pepe",
+      "seed": 7,
+      "presence": "away",
+      "group": "away",
+      "status": "zzz"
+    },
+    {
+      "id": "theo",
+      "name": "Theo",
+      "seed": 2,
+      "presence": "away",
+      "group": "away",
+      "status": "Vuelvo en cinco, café"
+    },
+    {
+      "id": "sam",
+      "name": "Sam",
+      "seed": 4,
+      "presence": "busy",
+      "group": "away",
+      "status": "En reunión, escríbeme luego"
+    }
+  ],
+  "tabs": [
+    {
+      "id": "mika",
+      "name": "Mika",
+      "kind": "person",
+      "seed": 1,
+      "presence": "online",
+      "status": "Directo esta noche: Pixel Pond ★"
+    },
+    {
+      "id": "ana-luz",
+      "name": "Ana Luz",
+      "kind": "person",
+      "seed": 0,
+      "presence": "online",
+      "status": "♪ lo-fi y depurando"
+    },
+    {
+      "id": "weekend",
+      "name": "Excursión del finde",
+      "kind": "group",
+      "seed": 6,
+      "presence": "online",
+      "status": ""
+    },
+    {
+      "id": "general",
+      "name": "general",
+      "kind": "channel",
+      "seed": 0,
+      "presence": "online",
+      "status": ""
+    }
+  ],
+  "messages": {
+    "mika": [
+      {
+        "kind": "day",
+        "text": "Hoy • miércoles, 11 de noviembre de 2026"
+      },
+      {
+        "kind": "message",
+        "sender": "Mika",
+        "seed": 1,
+        "presence": "online",
+        "time": "21:31",
+        "text": "¡Ey! ¿Viste el nuevo Blobi? Las pestañas quedaron preciosas"
+      },
+      {
+        "kind": "message",
+        "sender": "Sky",
+        "seed": 3,
+        "presence": "online",
+        "time": "21:33",
+        "mine": true,
+        "text": "Ya lo estoy probando, el zumbido funciona y todo"
+      },
+      {
+        "kind": "message",
+        "sender": "Mika",
+        "seed": 1,
+        "presence": "online",
+        "time": "21:35",
+        "text": "Jajaja, me encanta. Esta noche hago directo de Pixel Pond",
+        "reactions": [
+          {
+            "emoji": "😍",
+            "count": 2
+          },
+          {
+            "emoji": "😮",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "kind": "emoji",
+        "sender": "Mika",
+        "seed": 1,
+        "presence": "online",
+        "time": "21:36",
+        "emoji": "😍"
+      },
+      {
+        "kind": "message",
+        "sender": "Mika",
+        "seed": 1,
+        "presence": "online",
+        "time": "21:37",
+        "text": "Pásate por #general cuando empiece y lo ves desde ahí"
+      },
+      {
+        "kind": "attachment",
+        "sender": "Mika",
+        "seed": 1,
+        "presence": "online",
+        "time": "21:38",
+        "name": "playlist-lofi.png",
+        "size": "248 KB",
+        "type": "Imagen",
+        "reactions": [
+          {
+            "emoji": "😍",
+            "count": 1
+          },
+          {
+            "emoji": "😮",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "ana-luz": [
+      {
+        "kind": "day",
+        "text": "Hoy • miércoles, 11 de noviembre de 2026"
+      },
+      {
+        "kind": "message",
+        "sender": "Ana Luz",
+        "seed": 0,
+        "presence": "online",
+        "time": "20:58",
+        "text": "Te mando la playlist de lo-fi en un rato"
+      },
+      {
+        "kind": "message",
+        "sender": "Sky",
+        "seed": 3,
+        "presence": "online",
+        "time": "21:02",
+        "mine": true,
+        "text": "Perfecto, la necesito para concentrarme"
+      },
+      {
+        "kind": "message",
+        "sender": "Ana Luz",
+        "seed": 0,
+        "presence": "online",
+        "time": "21:03",
+        "text": "Claro, te paso dos listas"
+      }
+    ],
+    "weekend": [
+      {
+        "kind": "day",
+        "text": "Hoy • miércoles, 11 de noviembre de 2026"
+      },
+      {
+        "kind": "message",
+        "sender": "Theo",
+        "seed": 2,
+        "presence": "away",
+        "time": "19:40",
+        "text": "¿Quedamos a las 8 en la estación?"
+      },
+      {
+        "kind": "message",
+        "sender": "Nori",
+        "seed": 5,
+        "presence": "online",
+        "time": "19:42",
+        "text": "Yo llevo el termo con té"
+      },
+      {
+        "kind": "message",
+        "sender": "Juno",
+        "seed": 6,
+        "presence": "online",
+        "time": "19:44",
+        "text": "Y yo la cámara, prometo no hacer 400 fotos"
+      },
+      {
+        "kind": "message",
+        "sender": "Sky",
+        "seed": 3,
+        "presence": "online",
+        "time": "19:50",
+        "mine": true,
+        "text": "Hecho. Llevad abrigo que el sábado refresca"
+      }
+    ],
+    "general": []
+  },
+  "unreadMessage": {
+    "tab": "weekend",
+    "sender": "Theo",
+    "seed": 2,
+    "presence": "away",
+    "time": "19:40",
+    "text": "¿Quedamos a las 8 en la estación?"
+  },
+  "nudgeSystem": "Le has enviado un zumbido a {name}",
+  "themeStudio": {
+    "title": "Theme Studio",
+    "description": "El prototipo de escritorio incluye un Theme Studio para editar una copia del tema integrado.",
+    "myThemes": "Mis temas",
+    "editor": "Editor",
+    "newTheme": "Nuevo tema",
+    "import": "Importar…",
+    "inUse": "En uso",
+    "customise": "Personalizar",
+    "duplicate": "Duplicar",
+    "export": "Exportar…",
+    "status": "En desarrollo"
+  },
+  "home": {
+    "windowsTitle": "Contactos a un lado, conversaciones en pestañas",
+    "windowsLead": "El prototipo de escritorio muestra el diseño de dos ventanas, con apariencias clara y oscura.",
+    "separate": "Contactos y conversaciones en ventanas separadas",
+    "appearance": "Apariencias clara y oscura",
+    "tabMove": "Pestañas que puedes mover entre ventanas",
+    "privacyTitle": "La privacidad, por escrito",
+    "themesTitle": "Elige un estilo. Crea el tuyo.",
+    "themeLead": "Un tema integrado, en sus dos apariencias.",
+    "closingTitle": "Blobi todavía se está construyendo",
+    "closingText": "Sigue el avance en el blog o suscríbete al canal RSS. Cuando haya una versión preliminar, la página de descargas lo dirá."
+  }
+}

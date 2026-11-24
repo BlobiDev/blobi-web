@@ -1,0 +1,67 @@
+---
+import '../styles/global.css';
+import en from '../i18n/en.json';
+import es from '../i18n/es.json';
+const { lang = 'en', title, noindex = false, noReferrer = false } = Astro.props as { lang: 'en' | 'es'; title?: string; noindex?: boolean; noReferrer?: boolean };
+const copy = lang === 'es' ? es : en;
+const homePath = lang === 'es' ? '/es/' : '/';
+const links = [[`${homePath}#demo`, copy.nav.demo], [`${homePath}#status`, copy.nav.status], [`${homePath}#themes`, copy.nav.themes]] as const;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+    <meta name="theme-color" content="#ffffff"/><meta name="description" content={copy.home.lead}/>
+    {noReferrer && <meta name="referrer" content="no-referrer"/>}
+    {noindex ? <meta name="robots" content="noindex"/> : <><link rel="canonical" href={`https://blobi.dev${homePath}`}/><link rel="alternate" hreflang="en" href="https://blobi.dev/"/><link rel="alternate" hreflang="es" href="https://blobi.dev/es/"/><link rel="alternate" hreflang="x-default" href="https://blobi.dev/"/></>}
+    <link rel="icon" href="/brand/blobi-icon.svg" type="image/svg+xml"/><title>{title ?? copy.home.metaTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">{copy.skip}</a>
+    <header class="site-header" data-site-header>
+      <div class="topbar wrap">
+        <a class="brand" href={homePath} aria-label={copy.brand.home}><img src="/brand/blobi-icon.svg" alt="" width="32" height="32"/><span>Blobi</span></a>
+        <nav class="site-nav" aria-label={copy.nav.main}>{links.map(([href, label]) => <a href={href}>{label}</a>)}</nav>
+        <span class="project-status"><i aria-hidden="true"></i>{copy.status.project}</span>
+        <nav class="language-switch" aria-label={copy.nav.language}>
+          {lang === 'en' ? <span aria-current="page">EN</span> : <a href="/" lang="en" hreflang="en">EN</a>}
+          {lang === 'es' ? <span aria-current="page">ES</span> : <a href="/es/" lang="es" hreflang="es">ES</a>}
+        </nav>
+        <a class="nav-cta" href={`${homePath}#waitlist`}>{copy.nav.waitlist}</a>
+      </div>
+    </header>
+    <slot/>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <span class="brand"><img src="/brand/blobi-icon.svg" alt="" width="28" height="28"/><span>Blobi</span></span>
+        <p>{copy.footer.privacy}</p>
+        <span class="project-status"><i aria-hidden="true"></i>{copy.status.project}</span>
+      </div>
+    </footer>
+  </body>
+</html>
+<style>
+.site-header{position:sticky;z-index:30;top:0;border-bottom:1px solid transparent;background:transparent;transition:background-color .2s,border-color .2s}
+.site-header.is-scrolled{border-bottom-color:var(--sky-line);background:var(--sky-bar)}
+.topbar{display:flex;min-height:64px;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:9px;color:var(--ink);font-family:var(--font-display);font-size:21px;font-weight:700;letter-spacing:-.02em;text-decoration:none}
+.site-nav{display:flex;gap:4px}
+.site-nav a{padding:8px 12px;border-radius:8px;color:var(--ink-2);font-size:15px;font-weight:500;text-decoration:none;transition:color .15s,background .15s}
+.site-nav a:hover{background:var(--bg-soft);color:var(--ink)}
+.project-status{display:flex;align-items:center;gap:8px;margin-left:auto;color:var(--ink-3);font-size:14px;white-space:nowrap}
+.project-status i{width:8px;height:8px;border-radius:50%;background:var(--away)}
+.language-switch{display:flex;padding:3px;border:1px solid var(--line);border-radius:10px}
+.language-switch a,.language-switch span{display:grid;min-width:40px;min-height:34px;place-items:center;border-radius:7px;color:var(--ink-2);font-size:13px;font-weight:600;text-decoration:none}
+.language-switch [aria-current=page]{background:var(--bg-soft);color:var(--ink)}
+.nav-cta{display:inline-flex;min-height:40px;align-items:center;padding:0 16px;border-radius:10px;background:var(--ink);color:#fff;font-size:14px;font-weight:600;text-decoration:none;transition:background .15s}
+.nav-cta:hover{background:var(--ink-hover)}
+.site-footer{padding:28px 0 max(28px,env(safe-area-inset-bottom));background:var(--grass-deep);color:#fff}
+.footer-inner{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
+.footer-inner .brand{color:#fff;font-size:18px}
+.footer-inner p{margin:0;color:#e9fbe0;font-size:14px}
+.footer-inner .project-status{color:#e9fbe0}
+@media(max-width:900px){.site-nav{display:none}}
+@media(max-width:640px){.topbar{gap:10px}.topbar>.project-status{display:none}.language-switch{margin-left:auto}.nav-cta{padding:0 12px}.footer-inner .project-status{margin-left:0}}
+@media(max-width:360px){.brand span{display:none}}
+</style>
+<script src="../scripts/site.ts"></script>

@@ -1,0 +1,152 @@
+{
+  "format": 2,
+  "id": "live-nostalgia-modern",
+  "name": {
+    "en": "Live Nostalgia Modern",
+    "es": "Live Nostalgia Modern"
+  },
+  "description": {
+    "en": "Glossy Aero glass, cyan title bars and white waves, with Blobi's own mascot: the 2009 messenger look, redrawn.",
+    "es": "Cristal Aero brillante, barras de título cian y ondas blancas, con la mascota de Blobi: el estilo de mensajería de 2009, redibujado."
+  },
+  "author": "Blobi",
+  "license": "CC-BY-4.0",
+  "version": "1.0.0",
+  "finish": "glossy",
+  "dark": false,
+  "colors": {
+    "bg": "#EAF6FC",
+    "panel": "#FFFFFF",
+    "card": "#EEF8FD",
+    "hover": "#DDF1FB",
+    "line": "#8EC5E1",
+    "ink": "#0B1A33",
+    "ink2": "#24364C",
+    "ink3": "#3A4B5E",
+    "accent": "#1E68BC",
+    "accent2": "#3DB44A",
+    "accent-soft": "#CCEAFA",
+    "frame": "#49B3E2",
+    "hero": "#9ADCF5",
+    "hero2": "#B4E6F8",
+    "hero-blob": "#6CCB45",
+    "on-hero": "#0F2A44",
+    "bubble-me": "#E3F3D2",
+    "bubble-them": "#FFFFFF",
+    "on-accent": "#FFFFFF",
+    "primary": "#5CB83A",
+    "section": "#CCE7F7",
+    "section-ink": "#163E6A",
+    "tab-on": "#8CCDF1",
+    "tab-on2": "#DDF2FE",
+    "tab-off": "#DCF0FB",
+    "highlight": "#FFFFFF",
+    "button": "#D8EEFA",
+    "button2": "#FFFFFF",
+    "input": "#FFFFFF",
+    "input-line": "#9AC8E2",
+    "selected": "#CCEAFA",
+    "disabled": "#7893A5",
+    "history": "#FFFFFF"
+  },
+  "decor": {
+    "avatar-frame": false,
+    "presence-inline": true,
+    "bubbles": false,
+    "flat-bubbles": true,
+    "text-only": false
+  },
+  "layout": {
+    "header-compact": false,
+    "profile-pictures": true,
+    "action-bar": true,
+    "recipient-bar": false,
+    "status-bar": true,
+    "conversation-header": true,
+    "classic-frame": true,
+    "menu-bar": false,
+    "emoji-bar": true,
+    "quick-send": true,
+    "aero-chrome": true,
+    "aero-glass": true,
+    "action-labels": true
+  },
+  "fx": {
+    "gloss": 0.95,
+    "glow": 0.45,
+    "depth": 0.7,
+    "gradient": 1.0,
+    "roundness": 0.7,
+    "wave-opacity": 1.0,
+    "glass": 0.35
+  },
+  "metrics": {
+    "window-radius": 9,
+    "window-shadow": 14,
+    "panel-inset": 0,
+    "panel-radius": 12,
+    "hero-logo": 0,
+    "tab-height": 40,
+    "tab-radius": 10,
+    "tab-gap": 6,
+    "tab-lift": 0,
+    "header-height": 82,
+    "avatar-size": 34,
+    "row-height": 41,
+    "sidebar-width": 230,
+    "panel-padding": 14,
+    "message-gap": 12,
+    "bubble-radius": 10,
+    "button-radius": 14,
+    "input-height": 42,
+    "gap": 8,
+    "picture-width": 116,
+    "button-height": 34
+  },
+  "typography": {
+    "family": "Segoe UI",
+    "fallbacks": [
+      "Selawik",
+      "Tahoma",
+      "Noto Sans"
+    ],
+    "scale": 1.0,
+    "weight-strong": 700,
+    "weight-heavy": 800
+  },
+  "fonts": [
+    {
+      "file": "fonts/Selawik-Regular.ttf",
+      "family": "Selawik",
+      "license": "OFL-1.1",
+      "author": "Microsoft Corporation (Selawik, open-source Segoe UI fallback)"
+    },
+    {
+      "file": "fonts/Selawik-Bold.ttf",
+      "family": "Selawik",
+      "license": "OFL-1.1",
+      "author": "Microsoft Corporation (Selawik, open-source Segoe UI fallback)"
+    }
+  ],
+  "assets": {
+    "hero": "hero.svg",
+    "header": "header.svg",
+    "sidebar": "sidebar.svg"
+  },
+  "backgrounds": {
+    "main": [
+      {
+        "file": "sky.svg",
+        "anchor": 0,
+        "opacity": 0.85
+      }
+    ],
+    "conversation": [
+      {
+        "file": "sky.svg",
+        "anchor": 0,
+        "opacity": 1.0
+      }
+    ]
+  }
+}
