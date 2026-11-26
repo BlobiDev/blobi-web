@@ -1,42 +1,64 @@
 name: Publish Blobi Web image
 
-# Manual only, main only, and it writes only the sha- tag (reusing a tag overwrites it; reference images by digest). It never moves :main, which stays
-# with the previous publisher until the maintainer approves the cutover (see the migration runbook).
+# Manual only, main only. The image is pushed by digest without a tag, that digest is scanned, and only then does
+# it receive the sha- tag. Nothing here moves :main or :latest, and nothing deploys.
 on:
   workflow_dispatch:
 
-permissions:
-  contents: read
-  packages: write
+permissions: {}
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+env:
+  IMAGE: ghcr.io/blobidev/blobi-web
+  TRIVY: aquasec/trivy@sha256:8f6bb947dbc528902e11f2f5be52f7b519f6a39d5d148f41166f2040499768fb
 
 jobs:
   publish:
     if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
-      - name: Docker Buildx
-        uses: docker/setup-buildx-action@v4
+      # A page without the waitlist form must never be published. Values are not printed.
+      - name: Require the waitlist variables
+        env:
+          PUBLIC_WAITLIST_ENDPOINT: ${{ vars.PUBLIC_WAITLIST_ENDPOINT }}
+          PUBLIC_WAITLIST_LIST_EN: ${{ vars.PUBLIC_WAITLIST_LIST_EN }}
+          PUBLIC_WAITLIST_LIST_ES: ${{ vars.PUBLIC_WAITLIST_LIST_ES }}
+        run: |
+          for v in PUBLIC_WAITLIST_ENDPOINT PUBLIC_WAITLIST_LIST_EN PUBLIC_WAITLIST_LIST_ES; do
+            [ -n "${!v}" ] || { echo "::error::repository variable $v is empty"; exit 1; }
+          done
 
-      - name: Login to GHCR
-        uses: docker/login-action@v4
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      - uses: docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550 # v4.8.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and publish
-        uses: docker/build-push-action@v7
+      # No provenance or sbom: the digest is one image manifest, the same one that is scanned, tagged and deployed.
+      # No build cache: a cached layer would keep old OS packages.
+      - name: Build and push by digest (no tag)
+        id: build
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
           context: .
-          push: true
-          tags: |
-            ghcr.io/blobidev/blobi-web:sha-${{ github.sha }}
+          platforms: linux/amd64
+          provenance: false
+          sbom: false
+          outputs: type=image,name=${{ env.IMAGE }},push-by-digest=true,name-canonical=true,push=true
           build-args: |
             PUBLIC_WAITLIST_ENDPOINT=${{ vars.PUBLIC_WAITLIST_ENDPOINT }}
             PUBLIC_WAITLIST_LIST_EN=${{ vars.PUBLIC_WAITLIST_LIST_EN }}
@@ -44,5 +66,66 @@ jobs:
             PUBLIC_INVITES_API=${{ vars.PUBLIC_INVITES_API }}
           labels: |
             org.opencontainers.image.source=https://github.com/blobidev/blobi-web
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+            org.opencontainers.image.revision=${{ github.sha }}
+
+      - name: Scan the pushed digest (fails on any high or critical vulnerability)
+        id: scan
+        env:
+          DIGEST: ${{ steps.build.outputs.digest }}
+          TRIVY_USERNAME: ${{ github.actor }}
+          TRIVY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          [[ $DIGEST =~ ^sha256:[0-9a-f]{64}$ ]]
+          echo "scanning $IMAGE@$DIGEST"
+          mkdir -p scan
+          rc=0
+          docker run --rm -e TRIVY_USERNAME -e TRIVY_PASSWORD -v "$PWD/scan:/scan" "$TRIVY" image --image-src remote \
+            --scanners vuln --severity HIGH,CRITICAL --exit-code 1 --ignorefile /dev/null \
+            --format json --output /scan/trivy.json "$IMAGE@$DIGEST" || rc=$?
+          docker run --rm -v "$PWD/scan:/scan" "$TRIVY" convert --format table /scan/trivy.json
+          [ "$rc" = 0 ]
+          jq -e --arg ref "$IMAGE@$DIGEST" '.ArtifactName == $ref' scan/trivy.json >/dev/null
+
+      - name: Tag the scanned digest and check it
+        id: tag
+        env:
+          DIGEST: ${{ steps.build.outputs.digest }}
+          TAG: sha-${{ github.sha }}
+        run: |
+          set -euo pipefail
+          docker buildx imagetools create --prefer-index=false --tag "$IMAGE:$TAG" "$IMAGE@$DIGEST"
+          got=$(docker buildx imagetools inspect "$IMAGE:$TAG" --format '{{.Manifest.Digest}}')
+          echo "scanned=$DIGEST tagged=$got"
+          [ "$got" = "$DIGEST" ]
+
+      # Also written when the scan fails: it names the untagged digest left in the registry.
+      - name: Record
+        if: always() && steps.build.outputs.digest != ''
+        env:
+          DIGEST: ${{ steps.build.outputs.digest }}
+          TAG: sha-${{ github.sha }}
+          COMMIT: ${{ github.sha }}
+          RUN_ID: ${{ github.run_id }}
+          SCAN: ${{ steps.scan.outcome }}
+          TAGGED: ${{ steps.tag.outcome }}
+          SET_PUBLIC_WAITLIST_ENDPOINT: ${{ vars.PUBLIC_WAITLIST_ENDPOINT != '' }}
+          SET_PUBLIC_WAITLIST_LIST_EN: ${{ vars.PUBLIC_WAITLIST_LIST_EN != '' }}
+          SET_PUBLIC_WAITLIST_LIST_ES: ${{ vars.PUBLIC_WAITLIST_LIST_ES != '' }}
+          SET_PUBLIC_INVITES_API: ${{ vars.PUBLIC_INVITES_API != '' }}
+        run: |
+          set -euo pipefail
+          version=$(docker run --rm "$TRIVY" --version | sed -n 's/^Version: //p')
+          jq -n --arg version "$version" '{image: env.IMAGE, tag: (if env.TAGGED == "success" then env.TAG else null end),
+            digest: env.DIGEST, commit: env.COMMIT, run_id: env.RUN_ID,
+            trivy: {version: $version, image: env.TRIVY, severity: "HIGH,CRITICAL", result: env.SCAN},
+            tag_check: env.TAGGED, build_variables_set: {PUBLIC_WAITLIST_ENDPOINT: (env.SET_PUBLIC_WAITLIST_ENDPOINT == "true"), PUBLIC_WAITLIST_LIST_EN: (env.SET_PUBLIC_WAITLIST_LIST_EN == "true"), PUBLIC_WAITLIST_LIST_ES: (env.SET_PUBLIC_WAITLIST_LIST_ES == "true"), PUBLIC_INVITES_API: (env.SET_PUBLIC_INVITES_API == "true")}}' > publish-record.json
+          { echo '### publish record'; echo '```json'; cat publish-record.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always() && steps.build.outputs.digest != ''
+        with:
+          name: publish-record
+          path: publish-record.json
+          if-no-files-found: error
+          retention-days: 90

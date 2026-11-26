@@ -18,7 +18,7 @@ Use `astro preview` for screenshots and visual QA. `dist/` is static output; the
 
 ## Publishing the image
 
-`.github/workflows/publish.yml` is manual (`workflow_dispatch`), runs only on `main` and publishes `ghcr.io/blobidev/blobi-web:sha-<full commit sha>`; it never moves `:main`. Run a `sha-` tag in production, never `:main`. Deployment is not part of this repository, and no image built from it should be deployed before the dependency upgrade has been reviewed (`docs/SECURITY-ADVISORIES.md`).
+`.github/workflows/publish.yml` is manual (`workflow_dispatch`), runs only on `main` and pushes the image by digest, scans that digest and only then tags it `ghcr.io/blobidev/blobi-web:sha-<full commit sha>`; it never moves `:main`. It fails if a `PUBLIC_WAITLIST_*` variable is empty. The digest is in the run summary and in the `publish-record` artifact: deploy by digest (`ghcr.io/blobidev/blobi-web@sha256:…`), never by tag. A failed scan leaves an untagged image in the registry. Deployment is not part of this repository, and no image built from it should be deployed before the dependency upgrade has been reviewed (`docs/SECURITY-ADVISORIES.md`).
 
 ## Waitlist form
 
